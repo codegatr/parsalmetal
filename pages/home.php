@@ -36,7 +36,7 @@ if ($featuresRaw) {
     $aboutFeatures = [
         'Alumil, Linea Rossa ve Alfore yetkili üreticisi',
         '20 yılı aşkın deneyim ve 850+ tamamlanan proje',
-        'İzmir genelinde ücretsiz ölçüm ve keşif hizmeti',
+        'Konya genelinde ücretsiz ölçüm ve keşif hizmeti',
         'Projeye özel tasarım ve anahtar teslim uygulama',
         'Montaj sonrası satış desteği ve periyodik bakım',
     ];
@@ -49,11 +49,11 @@ if ($whyRaw) {
 }
 $whyItems = (!empty($whyDecoded) && is_array($whyDecoded)) ? $whyDecoded : [
     ['num'=>'01','title'=>'Yetkili Üretici',     'desc'=>'Alumil, Linea Rossa ve Alfore markalari yetkili üreticisi olarak orijinal sistem ve malzeme güvencesi sunuyoruz.'],
-    ['num'=>'02','title'=>'Ücretsiz Keşif',      'desc'=>'İzmir genelinde ücretsiz ölcüm ve keşif hizmeti veriyoruz. Yerinde inceleme ile en doğru çözümü belirliyoruz.'],
+    ['num'=>'02','title'=>'Ücretsiz Keşif',      'desc'=>'Konya genelinde ücretsiz ölcüm ve keşif hizmeti veriyoruz. Yerinde inceleme ile en doğru çözümü belirliyoruz.'],
     ['num'=>'03','title'=>'Zamaninda Teslimat',  'desc'=>'Proje baslangicinda belirlenen teslimat tarihlerine sadik kalarak sürpriz gecikmeler yasatmiyoruz.'],
     ['num'=>'04','title'=>'Uygun Fiyat',         'desc'=>'Fabrikasyon üretim avantajimizla rekabetci fiyatlar sunuyor, kaliteden ödün vermeden bütcenize saygi gösteriyoruz.'],
     ['num'=>'05','title'=>'Satis Sonrasi Destek','desc'=>'Montaj sonrasinda da yaninizdayiz. Periyodik bakim, onarim ve yedek parca temin hizmetleriyle her zaman ulasabilirsiniz.'],
-    ['num'=>'06','title'=>'850+ Referans',        'desc'=>'İzmir genelinde konuttan ticariye, hastaneden okula 850+ basarili projemiz sektördeki güvenilirligimizin kaniti.'],
+    ['num'=>'06','title'=>'850+ Referans',        'desc'=>'Konya genelinde konuttan ticariye, hastaneden okula 850+ basarili projemiz sektördeki güvenilirligimizin kaniti.'],
 ];
 
 $icons = [

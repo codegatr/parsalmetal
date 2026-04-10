@@ -100,7 +100,7 @@ $latestContacts = $pdo->query('SELECT * FROM ' . p() . 'contacts ORDER BY create
       ['href'=>'/admin/ürünler.php?action=add','icon'=>'M12 4v16m8-8H4','label'=>'Ürün Ekle'],
       ['href'=>'/admin/hizmetler.php?action=add','icon'=>'M12 4v16m8-8H4','label'=>'Hizmet Ekle'],
       ['href'=>'/admin/ayarlar.php','icon'=>'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0','label'=>'Ayarlar'],
-      ['href'=>'/admin/güncelleme.php','icon'=>'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9','label'=>'Güncelleme'],
+      ['href'=>'/admin/guncelleme.php','icon'=>'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9','label'=>'Guncelleme'],
       ['href'=>'/admin/talepler.php','icon'=>'M8 10h.01M12 10h.01M16 10h.01M9 16H5','label'=>'Talepler'],
     ]; foreach ($shortcuts as $s): ?>
     <a href="<?= $s['href'] ?>" style="padding:18px 16px;background:#fff;border:1px solid #e2e5ea;border-radius:10px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;color:#1a1a2e;transition:.2s" onmouseover="this.style.borderColor='#c0392b'" onmouseout="this.style.borderColor='#e2e5ea'">

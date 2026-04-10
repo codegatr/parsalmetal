@@ -1,7 +1,7 @@
 <?php
 define('ROOT', dirname(__DIR__));
 require_once ROOT . '/admin/includes/admin_init.php';
-$pageTitle = 'Güncelleme';
+$pageTitle = 'Guncelleme';
 
 // Versiyon: config.php > DB > fallback
 $currentVer = '1.0.0';
@@ -271,7 +271,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply_github'])) {
             ->execute([$version ?: '?', $e->getMessage() . "\n" . implode("\n", $log), 'failed']);
         flash('error', 'Hata: ' . $e->getMessage());
     }
-    header('Location: /admin/güncelleme.php'); exit;
+    header('Location: /admin/guncelleme.php'); exit;
 }
 
 /* ---- POST: Manuel ZIP ---- */
@@ -321,7 +321,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply_manual'])) {
             ->execute([$version ?: '?', $e->getMessage() . "\n" . implode("\n", $log), 'failed']);
         flash('error', 'Hata: ' . $e->getMessage());
     }
-    header('Location: /admin/güncelleme.php'); exit;
+    header('Location: /admin/guncelleme.php'); exit;
 }
 
 $history = $pdo->query(
@@ -458,7 +458,7 @@ function checkRelease() {
   var btn = document.getElementById('btnCheck');
   btn.disabled = true; btn.textContent = 'Kontrol ediliyor...';
   ['releaseInfo','upToDate','checkError'].forEach(function(id){ document.getElementById(id).style.display='none'; });
-  fetch('/admin/güncelleme.php?action=check')
+  fetch('/admin/guncelleme.php?action=check')
     .then(function(r) { return r.json(); })
     .then(function(d) {
       btn.disabled = false;
