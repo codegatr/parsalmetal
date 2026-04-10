@@ -4,12 +4,12 @@ require_once ROOT . '/includes/header.php';
 $pdo = getDB();
 
 $slug = trim($_GET['slug'] ?? '');
-if (!$slug) { header('Location: /?page=ürünler'); exit; }
+if (!$slug) { header('Location: /?page=urunler'); exit; }
 
 $st = $pdo->prepare('SELECT pr.*, c.name as cat_name, c.slug as cat_slug FROM ' . p() . 'products pr LEFT JOIN ' . p() . 'categories c ON c.id=pr.category_id WHERE pr.slug=? AND pr.is_active=1');
 $st->execute([$slug]);
 $pr = $st->fetch();
-if (!$pr) { header('Location: /?page=ürünler'); exit; }
+if (!$pr) { header('Location: /?page=urunler'); exit; }
 
 $pageMetaTitle = htmlspecialchars($pr['name']) . ' - ' . getSetting('site_title');
 $pageMetaDesc  = htmlspecialchars($pr['short_desc'] ?? '');
@@ -149,7 +149,7 @@ $phoneClean = preg_replace('/\D/', '', $phone);
         <?php if ($pr['cat_name']): ?>
         <div style="background:#f8f9fa;border-radius:14px;padding:20px">
           <h4 style="font-size:12px;font-weight:700;color:#999;margin:0 0 12px;text-transform:uppercase;letter-spacing:1.5px">Kategori</h4>
-          <a href="/?page=ürünler&cat=<?= htmlspecialchars($pr['cat_slug'] ?? '') ?>"
+          <a href="/?page=urunler&cat=<?= htmlspecialchars($pr['cat_slug'] ?? '') ?>"
              style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #eaedf0;border-radius:8px;padding:9px 14px;font-size:13px;font-weight:600;color:#1a1a2e;text-decoration:none">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="2"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10"/></svg>
             <?= htmlspecialchars($pr['cat_name']) ?>

@@ -47,11 +47,11 @@ $pageMetaDesc  = 'Metal ve alüminyum ürün katalogumuzu inceleyin.';
       <aside>
         <div style="background:#f8f8f8;border-radius:12px;padding:24px;margin-bottom:20px">
           <h3 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#666;margin-bottom:16px">Kategoriler</h3>
-          <a href="/?page=ürünler" style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:8px;font-size:14px;margin-bottom:4px;<?= !$catSlug ? 'background:#c0392b;color:#fff;font-weight:600' : 'color:#333' ?>">
+          <a href="/?page=urunler" style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:8px;font-size:14px;margin-bottom:4px;<?= !$catSlug ? 'background:#c0392b;color:#fff;font-weight:600' : 'color:#333' ?>">
             Tümü <span style="font-size:12px"><?= $total ?></span>
           </a>
           <?php foreach ($cats as $c): ?>
-          <a href="/?page=ürünler&cat=<?= htmlspecialchars($c['slug']) ?>" style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:8px;font-size:14px;margin-bottom:4px;<?= $catSlug === $c['slug'] ? 'background:#c0392b;color:#fff;font-weight:600' : 'color:#333' ?>">
+          <a href="/?page=urunler&cat=<?= htmlspecialchars($c['slug']) ?>" style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:8px;font-size:14px;margin-bottom:4px;<?= $catSlug === $c['slug'] ? 'background:#c0392b;color:#fff;font-weight:600' : 'color:#333' ?>">
             <?= htmlspecialchars($c['name']) ?>
           </a>
           <?php endforeach; ?>
@@ -105,7 +105,7 @@ $pageMetaDesc  = 'Metal ve alüminyum ürün katalogumuzu inceleyin.';
           </div>
           <?php endif; ?>
         </div>
-        <?php echo paginate($total, $limit, $page, '/?page=ürünler&cat=' . urlencode($catSlug) . '&q=' . urlencode($search) . '&'); ?>
+        <?php echo paginate($total, $limit, $page, '/?page=urunler&cat=' . urlencode($catSlug) . '&q=' . urlencode($search) . '&'); ?>
       </div>
     </div>
   </div>

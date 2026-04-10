@@ -80,7 +80,7 @@ $icons = [
         <h1 class="slide-title"><?= $s['title'] ?></h1>
         <p class="slide-sub"><?= htmlspecialchars($s['subtitle']) ?></p>
         <div class="slide-btns">
-          <a href="<?= htmlspecialchars($s['button_url'] ?? '/?page=ürünler') ?>" class="slide-btn-primary">
+          <a href="<?= htmlspecialchars($s['button_url'] ?? '/?page=urunler') ?>" class="slide-btn-primary">
             <?= htmlspecialchars($s['button_text'] ?? 'Keşfet') ?>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
@@ -96,7 +96,7 @@ $icons = [
         <h1 class="slide-title">Metalin Gucu,<br>Alüminyumun Zarafeti</h1>
         <p class="slide-sub">Yüksek kaliteli metal ve alüminyum çözümleriyle projelerinize deger katiyoruz.</p>
         <div class="slide-btns">
-          <a href="/?page=ürünler" class="slide-btn-primary">Ürünlerimizi Keşfet
+          <a href="/?page=urunler" class="slide-btn-primary">Ürünlerimizi Keşfet
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
           <a href="/?page=teklif" class="slide-btn-secondary">Teklif Al</a>
@@ -228,7 +228,7 @@ $icons = [
         <p class="section-desc">Geniş ürün portfoyumuzden ihtiyacınıza uygun secimi yapabilirsiniz.</p>
       </div>
       <?php if ($products): ?>
-      <a href="/?page=ürünler" class="btn-outline" style="margin-top:0;flex-shrink:0">Tum Ürünler →</a>
+      <a href="/?page=urunler" class="btn-outline" style="margin-top:0;flex-shrink:0">Tum Ürünler →</a>
       <?php endif; ?>
     </div>
 

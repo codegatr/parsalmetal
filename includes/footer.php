@@ -61,8 +61,8 @@ $products = $pdo->query('SELECT name, slug FROM ' . p() . 'products WHERE is_act
           <h4 class="footer-title">Hızlı Erişim</h4>
           <div class="footer-links">
             <a href="/">Ana Sayfa</a>
-            <a href="/?page=hakkımızda">Hakkımızda</a>
-            <a href="/?page=ürünler">Ürünler</a>
+            <a href="/?page=hakkimizda">Hakkımızda</a>
+            <a href="/?page=urunler">Ürünler</a>
             <a href="/?page=hizmetler">Hizmetler</a>
             <a href="/?page=teklif">Teklif Al</a>
             <a href="/?page=iletisim">İletişim</a>
