@@ -22,13 +22,13 @@ $products = $pdo->query('SELECT name, slug FROM ' . p() . 'products WHERE is_act
           <a href="/" class="logo-wrap" style="display:inline-flex;margin-bottom:4px;">
             <?php $logo = getSetting('site_logo',''); ?>
             <?php if ($logo): ?>
-            <img class="logo-img" src="<?= htmlspecialchars($logo) ?>" alt="<?= htmlspecialchars($siteTitle) ?>" style="height:44px;width:auto;max-width:180px;object-fit:contain">
+            <img src="<?= htmlspecialchars($logo) ?>" alt="<?= htmlspecialchars($siteTitle) ?>" style="height:48px;width:auto;max-width:200px;object-fit:contain;display:block">
             <?php else: ?>
-            <div style="width:40px;height:40px;background:#c0392b;border-radius:8px;display:flex;align-items:center;justify-content:center;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polygon points="12 2 22 19 2 19"/></svg>
-            </div>
-            <div class="logo-text" style="margin-left:10px">
-              <span class="name">PARSAL METAL</span>
+            <div style="display:flex;align-items:center;gap:10px">
+              <div style="width:40px;height:40px;background:#c0392b;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polygon points="12 2 22 19 2 19"/></svg>
+              </div>
+              <span style="font-size:14px;font-weight:700;color:#fff;letter-spacing:1.5px">PARSAL METAL</span>
             </div>
             <?php endif; ?>
           </a>

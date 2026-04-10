@@ -19,7 +19,6 @@ $nav = [
   'urunler'    => 'Ürünler',
   'hizmetler'  => 'Hizmetler',
   'hakkimizda' => 'Hakkımızda',
-  'teklif'     => 'Teklif Al',
   'iletisim'   => 'İletişim',
 ];
 
@@ -56,13 +55,13 @@ $pageMetaDesc  = $pageMetaDesc  ?? $metaDesc;
         <?php
         $logo = getSetting('site_logo', '');
         if ($logo): ?>
-        <img class="logo-img" src="<?= htmlspecialchars($logo) ?>" alt="<?= htmlspecialchars($siteTitle) ?>" style="height:52px;width:auto;max-width:200px;object-fit:contain">
+        <img class="logo-img" src="<?= htmlspecialchars($logo) ?>" alt="<?= htmlspecialchars($siteTitle) ?>" style="height:52px;width:auto;max-width:220px;object-fit:contain">
         <?php else: ?>
         <div style="width:44px;height:44px;background:#c0392b;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polygon points="12 2 22 19 2 19"/></svg>
         </div>
         <div class="logo-text">
-          <span class="name">PARSAL METAL</span>
+          <span class="name" style="font-size:14px;letter-spacing:1.5px">PARSAL METAL</span>
           <span class="tagline"><?= htmlspecialchars($siteSlogan) ?></span>
         </div>
         <?php endif; ?>
