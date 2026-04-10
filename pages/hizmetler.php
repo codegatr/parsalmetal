@@ -32,6 +32,28 @@ if ($slug) {
   </div>
 </div>
 
+<style>
+.hizmet-intro p { font-size:16px; line-height:1.8; color:#444; margin-bottom:28px; }
+.hizmet-liste { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:20px 0 32px; }
+.hizmet-item { background:#f8f9fa; border-radius:12px; padding:22px; border-left:3px solid #c0392b; }
+.hizmet-item h4 { font-size:15px; font-weight:700; color:#1a1a2e; margin-bottom:8px; }
+.hizmet-item p { font-size:13px; color:#666; line-height:1.7; margin:0; }
+.hizmet-tablo { width:100%; border-collapse:collapse; margin:16px 0 28px; font-size:14px; }
+.hizmet-tablo th { background:#1a1a2e; color:#fff; padding:10px 14px; text-align:left; font-weight:600; }
+.hizmet-tablo td { padding:9px 14px; border-bottom:1px solid #eee; color:#555; }
+.hizmet-tablo tr:nth-child(even) td { background:#f8f9fa; }
+.hizmet-tablo tr:last-child td { border-bottom:none; }
+.hizmet-avantaj { list-style:none; padding:0; margin:16px 0; display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.hizmet-avantaj li { background:#fff; border:1px solid #eaedf0; border-radius:10px; padding:12px 16px; font-size:13px; color:#555; line-height:1.5; }
+.hizmet-avantaj li strong { color:#1a1a2e; display:block; margin-bottom:2px; }
+.page-content h3 { font-size:18px; font-weight:700; color:#1a1a2e; margin:28px 0 14px; padding-bottom:8px; border-bottom:2px solid #f0f0f0; }
+@media(max-width:640px) {
+  .hizmet-liste { grid-template-columns:1fr; }
+  .hizmet-avantaj { grid-template-columns:1fr; }
+  .hizmet-tablo { font-size:12px; }
+  .hizmet-tablo th, .hizmet-tablo td { padding:8px 10px; }
+}
+</style>
 <section class="section">
   <div class="container">
     <?php if ($slug): ?>
