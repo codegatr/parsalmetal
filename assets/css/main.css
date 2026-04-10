@@ -25,7 +25,7 @@
   --font:         'Inter', 'Segoe UI', system-ui, sans-serif;
   --font-display: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
   --container:    1200px;
-  --header-h:     80px;
+  --header-h:     88px;
 }
 
 /* RESET */
@@ -74,7 +74,7 @@ h1,h2,h3,h4,h5 { font-family: var(--font-display); font-weight: 700; line-height
   box-shadow: 0 2px 24px rgba(0,0,0,.4);
 }
 .header-inner {
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex; align-items: center; gap: 40px;
   height: 100%;
 }
 .logo-wrap { display: flex; align-items: center; gap: 14px; }
@@ -83,7 +83,7 @@ h1,h2,h3,h4,h5 { font-family: var(--font-display); font-weight: 700; line-height
 .logo-text .name { font-family: var(--font-display); font-size: 15px; font-weight: 800; color: var(--white); letter-spacing: 2px; }
 .logo-text .tagline { font-size: 10px; color: var(--silver); letter-spacing: 1.5px; text-transform: uppercase; }
 
-.main-nav { display: flex; align-items: center; gap: 4px; }
+.main-nav { display: flex; align-items: center; gap: 2px; }
 .main-nav a {
   padding: 8px 16px; border-radius: 6px;
   font-size: 14px; font-weight: 500; color: rgba(255,255,255,.8);
@@ -98,6 +98,7 @@ h1,h2,h3,h4,h5 { font-family: var(--font-display); font-weight: 700; line-height
 
 .header-cta {
   display: flex; align-items: center; gap: 12px;
+  margin-left: auto;
 }
 .btn-quote {
   padding: 10px 22px; background: var(--accent); color: var(--white);
