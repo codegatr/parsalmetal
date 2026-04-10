@@ -22,15 +22,15 @@ $products = $pdo->query('SELECT name, slug FROM ' . p() . 'products WHERE is_act
           <a href="/" class="logo-wrap" style="display:inline-flex;margin-bottom:4px;">
             <?php $logo = getSetting('site_logo',''); ?>
             <?php if ($logo): ?>
-            <img class="logo-img" src="<?= htmlspecialchars($logo) ?>" alt="<?= htmlspecialchars($siteTitle) ?>" style="height:40px;">
+            <img class="logo-img" src="<?= htmlspecialchars($logo) ?>" alt="<?= htmlspecialchars($siteTitle) ?>" style="height:44px;width:auto;max-width:180px;object-fit:contain">
             <?php else: ?>
             <div style="width:40px;height:40px;background:#c0392b;border-radius:8px;display:flex;align-items:center;justify-content:center;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polygon points="12 2 22 19 2 19"/></svg>
             </div>
-            <?php endif; ?>
             <div class="logo-text" style="margin-left:10px">
               <span class="name">PARSAL METAL</span>
             </div>
+            <?php endif; ?>
           </a>
           <p class="footer-desc">Yüksek kaliteli metal ve alüminyum ürünleri ile sektörün güvenilir tedarikçisi. Projelerinize özel çözümler sunuyoruz.</p>
           <div class="footer-social">

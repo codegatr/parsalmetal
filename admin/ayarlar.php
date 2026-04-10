@@ -33,7 +33,7 @@ foreach (['site_title','site_slogan','site_email','site_phone','site_address','s
           'meta_title','meta_description','footer_text','github_repo','github_token',
           'cookie_bar','founded_year','about_short','mission_text','vision_text',
           'maps_embed','social_facebook','social_instagram','social_linkedin','social_youtube',
-          'site_logo','about_image'] as $k) {
+          'site_logo','about_image','site_whatsapp','about_features'] as $k) {
     $s[$k] = getSetting($k, '');
 }
 ?>
@@ -93,7 +93,12 @@ foreach (['site_title','site_slogan','site_email','site_phone','site_address','s
     <div class="form-grid">
       <div class="form-group">
         <label class="form-label">Site Logosu</label>
-        <?php if ($s['site_logo']): ?><img src="<?= htmlspecialchars($s['site_logo']) ?>" id="logoPreview" style="max-height:60px;margin-bottom:8px;border-radius:6px"><?php else: ?><img id="logoPreview" src="" style="max-height:60px;margin-bottom:8px;border-radius:6px;display:none"><?php endif; ?>
+        <?php if ($s['site_logo']): ?>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <img src="<?= htmlspecialchars($s['site_logo']) ?>" id="logoPreview" style="max-height:60px;border-radius:6px">
+          <a href="/admin/ayarlar.php?remove=site_logo" class="btn btn-sm btn-danger" onclick="return confirm('Logo kaldirilsin mi?')" style="flex-shrink:0">Kaldir</a>
+        </div>
+        <?php else: ?><img id="logoPreview" src="" style="max-height:60px;margin-bottom:8px;border-radius:6px;display:none"><?php endif; ?>
         <div class="upload-area" onclick="document.getElementById('logoFile').click()">
           <p style="font-size:12px;color:#aaa">Logo yukle (PNG/SVG, saydam arkaplan)</p>
         </div>
@@ -101,7 +106,12 @@ foreach (['site_title','site_slogan','site_email','site_phone','site_address','s
       </div>
       <div class="form-group">
         <label class="form-label">Hakkimizda Gorseli</label>
-        <?php if ($s['about_image']): ?><img src="<?= htmlspecialchars($s['about_image']) ?>" id="aboutImgPreview" style="max-height:80px;margin-bottom:8px;border-radius:6px"><?php else: ?><img id="aboutImgPreview" src="" style="max-height:80px;margin-bottom:8px;border-radius:6px;display:none"><?php endif; ?>
+        <?php if ($s['about_image']): ?>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <img src="<?= htmlspecialchars($s['about_image']) ?>" id="aboutImgPreview" style="max-height:80px;border-radius:6px">
+          <a href="/admin/ayarlar.php?remove=about_image" class="btn btn-sm btn-danger" onclick="return confirm('Gorsel kaldirilsin mi?')" style="flex-shrink:0">Kaldir</a>
+        </div>
+        <?php else: ?><img id="aboutImgPreview" src="" style="max-height:80px;margin-bottom:8px;border-radius:6px;display:none"><?php endif; ?>
         <div class="upload-area" onclick="document.getElementById('aboutImgFile').click()">
           <p style="font-size:12px;color:#aaa">Hakkimizda bolumu sol gorsel</p>
         </div>
