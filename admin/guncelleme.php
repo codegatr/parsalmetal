@@ -370,15 +370,12 @@ $history = $pdo->query(
       </button>
       <div id="releaseInfo" style="display:none">
         <div id="releaseBox" style="padding:12px;background:#f8f8f8;border-radius:8px;margin-bottom:12px;font-size:12px;color:#555;line-height:1.6"></div>
-        <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:8px;padding:12px;margin-bottom:12px;font-size:12px;color:#856404;line-height:1.6">
-          <strong>📥 Nasil guncellenir?</strong><br>
-          1. Asagidaki butona tikla → ZIP indir<br>
-          2. Indirilen ZIP'i sagdaki <strong>Manuel ZIP Yukle</strong> bolumunden yukle
-        </div>
-        <a id="btnDownload" href="#" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;padding:12px;display:flex;margin-bottom:8px">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-          ZIP Indir
-        </a>
+        <form method="POST" id="ghUpdateForm" onsubmit="return confirm('Guncelleme uygulanacak?')">
+          <input type="hidden" name="apply_github" value="1">
+          <input type="hidden" name="zip_url"  id="zipUrl">
+          <input type="hidden" name="version"  id="versionInput">
+          <button type="submit" id="btnUpdate" class="btn btn-primary" style="width:100%;justify-content:center;padding:12px">Guncelle</button>
+        </form>
       </div>
       <div id="upToDate" style="display:none" class="alert alert-success">En guncel surum kullaniliyor.</div>
       <div id="checkError" style="display:none" class="alert alert-error"></div>
@@ -481,9 +478,9 @@ function checkRelease() {
       if (d.date) info += ' <span style="color:#aaa;font-size:11px">' + d.date + '</span>';
       if (d.body) info += '<br><br>' + d.body.replace(/\n/g, '<br>');
       document.getElementById('releaseBox').innerHTML = info;
-      var dl = document.getElementById('btnDownload');
-      dl.href = d.zip_url;
-      dl.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> '+ d.tag +' ZIP Indir';
+      document.getElementById('zipUrl').value      = d.zip_url;
+      document.getElementById('versionInput').value = d.tag;
+      document.getElementById('btnUpdate').textContent = d.tag + ' Surumune Guncelle';
       document.getElementById('releaseInfo').style.display = 'block';
     })
     .catch(function(e) {
