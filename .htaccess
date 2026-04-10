@@ -39,3 +39,6 @@ RewriteRule ^([a-z0-9_-]+)/?$ /index.php?page=$1 [L,QSA]
   ExpiresByType text/css   "access plus 1 week"
   ExpiresByType application/javascript "access plus 1 week"
 </IfModule>
+
+# Favicon
+RedirectMatch 302 ^/favicon\.ico$ /favicon.svg
