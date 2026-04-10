@@ -24,7 +24,7 @@ $siteEmail   = getSetting('site_email', '');
 $siteAddress = getSetting('site_address', '');
 $siteSlogan  = getSetting('site_slogan', 'Metal ve Alüminyum Çözümleri');
 $aboutImg    = getSetting('about_image', '');
-$aboutShort  = getSetting('about_short', 'Metal ve alüminyum sektöründe yıllardır edindigi deneyimle müşterilerine en yüksek kalitede ürün ve hizmetler sunmaktadır.');
+$aboutShort  = getSetting('about_short', 'Metal ve alüminyum sektöründe yıllardır edindigi deneyimle müşterilerine en yüksek kalitede urun ve hizmetler sunmaktadır.');
 $foundedYear = getSetting('founded_year', '25');
 $whatsapp    = getSetting('site_whatsapp', preg_replace('/\D/', '', $sitePhone));
 
@@ -53,7 +53,7 @@ $whyItems = (!empty($whyDecoded) && is_array($whyDecoded)) ? $whyDecoded : [
     ['num'=>'03','title'=>'Zamaninda Teslimat',  'desc'=>'Proje baslangicinda belirlenen teslimat tarihlerine sadik kalarak sürpriz gecikmeler yasatmiyoruz.'],
     ['num'=>'04','title'=>'Uygun Fiyat',         'desc'=>'Fabrikasyon üretim avantajimizla rekabetci fiyatlar sunuyor, kaliteden ödün vermeden bütcenize saygi gösteriyoruz.'],
     ['num'=>'05','title'=>'Satis Sonrasi Destek','desc'=>'Montaj sonrasinda da yaninizdayiz. Periyodik bakim, onarim ve yedek parca temin hizmetleriyle her zaman ulasabilirsiniz.'],
-    ['num'=>'06','title'=>'850+ Referans',        'desc'=>'Konya genelinde konuttan ticariye, hastaneden okula 850+ başarılı projemiz sektördeki güvenilirligimizin kaniti.'],
+    ['num'=>'06','title'=>'850+ Referans',        'desc'=>'Konya genelinde konuttan ticariye, hastaneden okula 850+ basarili projemiz sektördeki güvenilirligimizin kaniti.'],
 ];
 
 $icons = [
@@ -198,19 +198,13 @@ $icons = [
     <div class="services-grid">
       <?php foreach ($services as $srv): ?>
       <div class="service-card">
-        <?php if (!empty($srv['image'])): ?>
-        <div class="service-img" style="background-image:url('<?= htmlspecialchars($srv['image']) ?>')"></div>
-        <?php else: ?>
         <div class="service-icon"><?= $icons[$srv['icon']] ?? $icons['settings'] ?></div>
-        <?php endif; ?>
-        <div class="service-body">
-          <div class="service-name"><?= htmlspecialchars($srv['name']) ?></div>
-          <p class="service-desc"><?= htmlspecialchars($srv['short_desc']) ?></p>
-          <a href="/?page=hizmetler&slug=<?= htmlspecialchars($srv['slug']) ?>" class="service-link">
-            Detaylar
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
+        <div class="service-name"><?= htmlspecialchars($srv['name']) ?></div>
+        <p class="service-desc"><?= htmlspecialchars($srv['short_desc']) ?></p>
+        <a href="/?page=hizmetler&slug=<?= htmlspecialchars($srv['slug']) ?>" class="service-link">
+          Detaylar
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
       <?php endforeach; ?>
     </div>
@@ -225,7 +219,7 @@ $icons = [
       <div>
         <div class="section-label">Ürünlerimiz</div>
         <h2 class="section-title" style="margin-bottom:8px">Öne Çıkan <span>Ürünler</span></h2>
-        <p class="section-desc">Geniş ürün portfoyumuzden ihtiyacınıza uygun secimi yapabilirsiniz.</p>
+        <p class="section-desc">Geniş urun portfoyumuzden ihtiyacınıza uygun secimi yapabilirsiniz.</p>
       </div>
       <?php if ($products): ?>
       <a href="/?page=urunler" class="btn-outline" style="margin-top:0;flex-shrink:0">Tum Ürünler →</a>
@@ -273,8 +267,8 @@ $icons = [
       <?php if (empty($products)): ?>
       <div style="grid-column:1/-1;text-align:center;padding:64px;color:#bbb">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ddd" stroke-width="1.5" style="margin:0 auto 16px"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10"/></svg>
-        <p style="font-size:15px">Henuz ürün eklenmemis.</p>
-        <p style="font-size:13px;margin-top:6px">Admin panelinden ürün ekleyebilirsiniz.</p>
+        <p style="font-size:15px">Henuz urun eklenmemis.</p>
+        <p style="font-size:13px;margin-top:6px">Admin panelinden urun ekleyebilirsiniz.</p>
       </div>
       <?php endif; ?>
     </div>
@@ -412,7 +406,7 @@ $icons = [
 <?php if ($whatsapp): ?>
 <a href="https://wa.me/<?= preg_replace('/\D/','',$whatsapp) ?>?text=Merhaba, bilgi almak istiyorum." target="_blank" rel="noopener"
    title="WhatsApp ile yaz"
-   style="position:fixed;bottom:calc(88px + env(safe-area-inset-bottom));right:max(24px, env(safe-area-inset-right));z-index:998;width:52px;height:52px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:.3s;text-decoration:none"
+   style="position:fixed;bottom:88px;right:24px;z-index:998;width:52px;height:52px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:.3s;text-decoration:none"
    onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 28px rgba(37,211,102,.6)'"
    onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(37,211,102,.45)'">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="white">

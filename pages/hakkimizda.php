@@ -33,7 +33,7 @@ $pageMetaDesc  = ($pg['meta_description'] ?? '') ?: '';
         <div class="section-label">Kurumsal</div>
         <h2 class="section-title">Parsal Metal <span>Kimdir?</span></h2>
         <div class="page-content">
-          <?= $pg['content'] ?? '<p>Metal ve alüminyum sektöründe onlarca yıllık deneyime sahip firmamiz, müşterilerine en kaliteli ürün ve hizmetleri sunmaktadır.</p>' ?>
+          <?= $pg['content'] ?? '<p>Metal ve alüminyum sektöründe onlarca yıllık deneyime sahip firmamiz, müşterilerine en kaliteli urun ve hizmetleri sunmaktadır.</p>' ?>
         </div>
       </div>
     </div>
@@ -57,7 +57,7 @@ $pageMetaDesc  = ($pg['meta_description'] ?? '') ?: '';
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
       <?php
       $mv = [
-        ['title'=>'Misyonumuz','icon'=>'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z','text'=>getSetting('mission_text','Müşterilerimize en yüksek kalitede metal ve alüminyum ürün ve hizmetleri sunarak sektörün öne çıkan firmasi olmak.')],
+        ['title'=>'Misyonumuz','icon'=>'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z','text'=>getSetting('mission_text','Müşterilerimize en yüksek kalitede metal ve alüminyum urun ve hizmetleri sunarak sektörün öne çıkan firmasi olmak.')],
         ['title'=>'Vizyonumuz','icon'=>'M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z M12 9a3 3 0 100 6 3 3 0 000-6z','text'=>getSetting('vision_text','Yenilikci üretim yöntemleri ve müşteri odaklı yaklasimimizla global pazarda tanınmış bir marka olmak.')],
       ];
       foreach ($mv as $item): ?>

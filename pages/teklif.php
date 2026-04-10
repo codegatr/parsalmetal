@@ -96,7 +96,7 @@ $pageMetaDesc  = 'Ucretsiz fiyat teklifi icin hemen başvurun.';
           </div>
           <div class="form-group full">
             <label>Mesaj ve Detaylar *</label>
-            <textarea name="message" rows="6" required placeholder="İhtiyacınızi, miktar, olcu, malzeme tipi gibi detaylari belirtin..."><?= htmlspecialchars($_POST['message'] ?? '') ?></textarea>
+            <textarea name="message" rows="6" required placeholder="Ihtiyacinizi, miktar, olcu, malzeme tipi gibi detaylari belirtin..."><?= htmlspecialchars($_POST['message'] ?? '') ?></textarea>
           </div>
           <div style="margin-bottom:16px">
             <label style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#666;cursor:pointer">
@@ -120,7 +120,7 @@ $pageMetaDesc  = 'Ucretsiz fiyat teklifi icin hemen başvurun.';
       <?php
       $infoCards = [
         ['ico'=>'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z','title'=>'Guvenli','desc'=>'Bilgileriniz SSL ile sifrelenir.'],
-        ['ico'=>'M12 2a10 10 0 110 20 10 10 0 010-20z M12 6v6l4 2','title'=>'Hızlı Yanit','desc'=>'24 saat icinde geri doneriz.'],
+        ['ico'=>'M12 2a10 10 0 110 20 10 10 0 010-20z M12 6v6l4 2','title'=>'Hizli Yanit','desc'=>'24 saat icinde geri doneriz.'],
         ['ico'=>'M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07','title'=>'Uzman Destek','desc'=>'Deneyimli ekip ile konusum.'],
       ];
       foreach ($infoCards as $c): ?>

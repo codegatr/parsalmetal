@@ -1,7 +1,7 @@
 <?php
 define('ROOT', dirname(__DIR__));
 require_once ROOT . '/admin/includes/admin_init.php';
-$pageTitle = 'Güncelleme';
+$pageTitle = 'Guncelleme';
 
 // Versiyon: config.php > DB > fallback
 $currentVer = '1.0.0';
@@ -139,7 +139,7 @@ function applyZip(string $tmpZip, string $version, $pdo): array
             $dest = ROOT . '/' . ltrim($f, '/');
             $dir  = dirname($dest);
 
-            // Dizin oluştur
+            // Dizin olustur
             if (!is_dir($dir)) {
                 if (!mkdir($dir, 0755, true)) {
                     $log[] = "DIZIN HATASI: $dir";
@@ -211,7 +211,7 @@ function applyZip(string $tmpZip, string $version, $pdo): array
                     file_put_contents($cfgPath, $cfg . "\ndefine('APP_VERSION', '$ver');\n");
                     $log[] = "config.php'ye APP_VERSION eklendi: $ver";
                 } else {
-                    $log[] = "config.php APP_VERSION zaten güncel.";
+                    $log[] = "config.php APP_VERSION zaten guncel.";
                 }
             }
         } else {
@@ -377,7 +377,7 @@ $history = $pdo->query(
           <button type="submit" id="btnUpdate" class="btn btn-primary" style="width:100%;justify-content:center;padding:12px">Güncelle</button>
         </form>
       </div>
-      <div id="upToDate" style="display:none" class="alert alert-success">En güncel sürüm kullaniliyor.</div>
+      <div id="upToDate" style="display:none" class="alert alert-success">En guncel sürüm kullaniliyor.</div>
       <div id="checkError" style="display:none" class="alert alert-error"></div>
       <a href="https://github.com/<?= htmlspecialchars($repoSlug) ?>/releases" target="_blank"
          class="btn btn-secondary" style="width:100%;justify-content:center;margin-top:10px">GitHub Releases</a>

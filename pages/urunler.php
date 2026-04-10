@@ -32,10 +32,10 @@ $st2->execute($params);
 $products = $st2->fetchAll();
 
 $pageMetaTitle = 'Ürünler - ' . getSetting('site_title');
-$pageMetaDesc  = 'Metal ve alüminyum ürün katalogumuzu inceleyin.';
+$pageMetaDesc  = 'Metal ve alüminyum urun katalogumuzu inceleyin.';
 ?>
     <h1>Ürün Katalogu</h1>
-    <p>Geniş ürün yelpazemizden ihtiyacınıza uygun secimi yapin.</p>
+    <p>Geniş urun yelpazemizden ihtiyacınıza uygun secimi yapin.</p>
   </div>
 </div>
 
@@ -74,7 +74,7 @@ $pageMetaDesc  = 'Metal ve alüminyum ürün katalogumuzu inceleyin.';
           <button type="submit" style="padding:11px 22px;background:#c0392b;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer">Ara</button>
         </form>
 
-        <p style="font-size:14px;color:#999;margin-bottom:24px"><?= $total ?> ürün listeleniyor</p>
+        <p style="font-size:14px;color:#999;margin-bottom:24px"><?= $total ?> urun listeleniyor</p>
 
         <div class="products-grid">
           <?php foreach ($products as $pr): ?>

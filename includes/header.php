@@ -16,7 +16,7 @@ $currentPage = $_GET['page'] ?? 'home';
 
 $nav = [
     'home'       => 'Ana Sayfa',
-    'ürünler'    => 'Ürünler',
+    'urunler'    => 'Ürünler',
     'hizmetler'  => 'Hizmetler',
     'hakkimizda' => 'Hakkımızda',
     'iletisim'   => 'İletişim',
@@ -26,7 +26,7 @@ $nav = [
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?= htmlspecialchars($pageMetaTitle) ?></title>
 <meta name="description" content="<?= htmlspecialchars($pageMetaDesc) ?>">
 <meta name="robots" content="index, follow">

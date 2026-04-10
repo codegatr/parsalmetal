@@ -37,7 +37,7 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
     <div class="page-actions" style="margin-bottom:16px"><h1>Admin Kullanicilari</h1></div>
     <div class="card"><div class="table-wrap">
       <table class="admin-table">
-        <thead><tr><th>Kullanici</th><th>E-posta</th><th>Rol</th><th>Son Giriş</th><th style="text-align:right">Islemler</th></tr></thead>
+        <thead><tr><th>Kullanici</th><th>E-posta</th><th>Rol</th><th>Son Giris</th><th style="text-align:right">Islemler</th></tr></thead>
         <tbody>
           <?php foreach ($users as $u): ?>
           <tr>
