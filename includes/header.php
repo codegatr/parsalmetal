@@ -50,7 +50,7 @@ $nav = [
         <?php if ($siteLogo): ?>
         <img src="<?= htmlspecialchars($siteLogo) ?>"
              alt="<?= htmlspecialchars($siteTitle) ?>"
-             style="height:50px;width:auto;max-width:200px;object-fit:contain;display:block">
+             class="site-logo-img">
         <?php else: ?>
         <div class="logo-icon-wrap">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polygon points="12 2 22 19 2 19"/></svg>
