@@ -48,12 +48,12 @@ if ($whyRaw) {
     $whyDecoded = json_decode($whyRaw, true);
 }
 $whyItems = (!empty($whyDecoded) && is_array($whyDecoded)) ? $whyDecoded : [
-    ['num'=>'01','title'=>'Yetkili Üretici',    'desc'=>'Alumil, Linea Rossa ve Alfore markaları yetkili üreticisi olarak orijinal sistem ve malzeme güvencesi sunuyoruz.'],
-    ['num'=>'02','title'=>'Ücretsiz Keşif',     'desc'=>'İzmir genelinde ücretsiz ölçüm ve keşif hizmeti veriyoruz. Yerinde inceleme ile en doğru çözümü belirliyoruz.'],
-    ['num'=>'03','title'=>'Zamanında Teslimat', 'desc'=>'Proje başlangıcında belirlenen teslimat tarihlerine sadık kalarak sürpriz gecikmeler yaşatmıyoruz.'],
-    ['num'=>'04','title'=>'Uygun Fiyat',        'desc'=>'Fabrikasyon üretim avantajımızla rekabetçi fiyatlar sunuyor, kaliteden ödün vermeden bütçenize saygı gösteriyoruz.'],
-    ['num'=>'05','title'=>'Satış Sonrası Destek','desc'=>'Montaj sonrasında da yanınızdayız. Periyodik bakım, onarım ve yedek parça temin hizmetleriyle her zaman ulaşabilirsiniz.'],
-    ['num'=>'06','title'=>'850+ Referans',       'desc'=>'İzmir''de konuttan ticariye, hastaneden okula 850''yi aşkın başarılı projemiz sektördeki güvenilirliğimizin kanıtıdır.'],
+    ['num'=>'01','title'=>'Yetkili Üretici',     'desc'=>'Alumil, Linea Rossa ve Alfore markalari yetkili üreticisi olarak orijinal sistem ve malzeme güvencesi sunuyoruz.'],
+    ['num'=>'02','title'=>'Ücretsiz Kesif',      'desc'=>'Izmir genelinde ücretsiz ölcüm ve kesif hizmeti veriyoruz. Yerinde inceleme ile en dogru cözümü belirliyoruz.'],
+    ['num'=>'03','title'=>'Zamaninda Teslimat',  'desc'=>'Proje baslangicinda belirlenen teslimat tarihlerine sadik kalarak sürpriz gecikmeler yasatmiyoruz.'],
+    ['num'=>'04','title'=>'Uygun Fiyat',         'desc'=>'Fabrikasyon üretim avantajimizla rekabetci fiyatlar sunuyor, kaliteden ödün vermeden bütcenize saygi gösteriyoruz.'],
+    ['num'=>'05','title'=>'Satis Sonrasi Destek','desc'=>'Montaj sonrasinda da yaninizdayiz. Periyodik bakim, onarim ve yedek parca temin hizmetleriyle her zaman ulasabilirsiniz.'],
+    ['num'=>'06','title'=>'850+ Referans',        'desc'=>'Izmir genelinde konuttan ticariye, hastaneden okula 850+ basarili projemiz sektördeki güvenilirligimizin kaniti.'],
 ];
 
 $icons = [
