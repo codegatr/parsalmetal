@@ -16,20 +16,11 @@ $related = $pdo->prepare('SELECT * FROM ' . p() . 'products WHERE category_id=? 
 $related->execute([$pr['category_id'], $pr['id']]);
 $relatedProducts = $related->fetchAll();
 ?>
-
-<div class="page-hero">
-  <div class="container">
-    <div class="page-hero-inner breadcrumb">
-      <a href="/">Ana Sayfa</a><span>/</span>
-      <a href="/?page=urunler">Urunler</a><span>/</span>
-      <?php if ($pr['cat_name']): ?><a href="/?page=urunler&cat=<?= htmlspecialchars($pr['cat_slug']) ?>"><?= htmlspecialchars($pr['cat_name']) ?></a><span>/</span><?php endif; ?>
-      <span><?= htmlspecialchars($pr['name']) ?></span>
-    </div>
     <h1><?= htmlspecialchars($pr['name']) ?></h1>
   </div>
 </div>
 
-<section class="section">
+<section class="section" style="margin-top:var(--header-h)">
   <div class="container">
     <div class="product-detail-grid">
       <div>

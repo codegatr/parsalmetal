@@ -30,18 +30,12 @@ $mapsEmbed   = getSetting('maps_embed','');
 $pageMetaTitle = 'Iletisim - ' . getSetting('site_title');
 $pageMetaDesc  = 'Bize ulasin, sorularinizi yanitleyelim.';
 ?>
-
-<div class="page-hero">
-  <div class="container">
-    <div class="breadcrumb" style="margin-bottom:16px">
-      <a href="/">Ana Sayfa</a><span style="margin:0 8px;opacity:.4">/</span><span>Iletisim</span>
-    </div>
     <h1>Bize Ulasin</h1>
     <p>Sorulariniz icin her zaman buradayiz.</p>
   </div>
 </div>
 
-<section class="section">
+<section class="section" style="margin-top:var(--header-h)">
   <div class="container">
     <div class="contact-grid">
       <!-- Info -->

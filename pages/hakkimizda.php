@@ -7,18 +7,12 @@ $certs = $pdo->query('SELECT * FROM ' . p() . 'certificates WHERE is_active=1 OR
 $pageMetaTitle = ($pg['meta_title'] ?? '') ?: 'Hakkimizda - ' . getSetting('site_title');
 $pageMetaDesc  = ($pg['meta_description'] ?? '') ?: '';
 ?>
-
-<div class="page-hero">
-  <div class="container">
-    <div class="breadcrumb" style="margin-bottom:16px">
-      <a href="/">Ana Sayfa</a><span style="margin:0 8px;opacity:.4">/</span><span>Hakkimizda</span>
-    </div>
     <h1><?= htmlspecialchars($pg['title'] ?? 'Hakkimizda') ?></h1>
     <p>Parsal Metal Aluminyum ailesiyle taninabilirsiniz.</p>
   </div>
 </div>
 
-<section class="section">
+<section class="section" style="margin-top:var(--header-h)">
   <div class="container">
     <div class="about-grid">
       <div class="about-img-wrap">

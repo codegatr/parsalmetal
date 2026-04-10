@@ -5,15 +5,10 @@ $pg  = $pdo->query("SELECT * FROM " . p() . "pages WHERE slug='gizlilik'")->fetc
 $pageMetaTitle = ($pg['meta_title'] ?? '') ?: 'Gizlilik Politikasi - ' . getSetting('site_title');
 $pageMetaDesc  = $pg['meta_description'] ?? '';
 ?>
-<div class="page-hero">
-  <div class="container">
-    <div class="breadcrumb" style="margin-bottom:16px">
-      <a href="/">Ana Sayfa</a><span style="margin:0 8px;opacity:.4">/</span><span><?= htmlspecialchars($pg['title'] ?? 'Gizlilik Politikasi') ?></span>
-    </div>
     <h1><?= htmlspecialchars($pg['title'] ?? 'Gizlilik Politikasi') ?></h1>
   </div>
 </div>
-<section class="section">
+<section class="section" style="margin-top:var(--header-h)">
   <div class="container">
     <div class="page-content">
       <?= $pg['content'] ?? '<p>Icerik henuz eklenmemistir.</p>' ?>

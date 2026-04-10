@@ -33,18 +33,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $pageMetaTitle = 'Teklif Alin - ' . getSetting('site_title');
 $pageMetaDesc  = 'Ucretsiz fiyat teklifi icin hemen basvurun.';
 ?>
-
-<div class="page-hero">
-  <div class="container">
-    <div class="breadcrumb" style="margin-bottom:16px">
-      <a href="/">Ana Sayfa</a><span style="margin:0 8px;opacity:.4">/</span><span>Teklif Al</span>
-    </div>
     <h1>Ucretsiz Teklif Alin</h1>
     <p>Formumu doldurun, uzman ekibimiz en kisa surede sizinle iletisime gececek.</p>
   </div>
 </div>
 
-<section class="section">
+<section class="section" style="margin-top:var(--header-h)">
   <div class="container" style="max-width:900px">
     <?php if ($sent): ?>
     <div class="alert alert-success" style="font-size:16px;padding:20px 24px">

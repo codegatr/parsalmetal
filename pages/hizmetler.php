@@ -27,20 +27,12 @@ if ($slug) {
     $pageMetaDesc  = 'Metal ve aluminyum hizmetlerimizi inceleyin.';
 }
 ?>
-
-<div class="page-hero">
-  <div class="container">
-    <div class="breadcrumb" style="margin-bottom:16px">
-      <a href="/">Ana Sayfa</a><span style="margin:0 8px;opacity:.4">/</span>
-      <a href="/?page=hizmetler">Hizmetler</a>
-      <?php if ($slug): ?><span style="margin:0 8px;opacity:.4">/</span><span><?= htmlspecialchars($service['name']) ?></span><?php endif; ?>
-    </div>
     <h1><?= $slug ? htmlspecialchars($service['name']) : 'Hizmetlerimiz' ?></h1>
     <p><?= $slug ? htmlspecialchars($service['short_desc'] ?? '') : 'Profesyonel metal ve aluminyum cozumleri.' ?></p>
   </div>
 </div>
 
-<section class="section">
+<section class="section" style="margin-top:var(--header-h)">
   <div class="container">
     <?php if ($slug): ?>
     <div class="about-grid">

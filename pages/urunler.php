@@ -34,18 +34,12 @@ $products = $st2->fetchAll();
 $pageMetaTitle = 'Urunler - ' . getSetting('site_title');
 $pageMetaDesc  = 'Metal ve aluminyum urun katalogumuzu inceleyin.';
 ?>
-
-<div class="page-hero">
-  <div class="container">
-    <div class="page-hero-inner breadcrumb">
-      <a href="/">Ana Sayfa</a><span>/</span><span>Urunler</span>
-    </div>
     <h1>Urun Katalogu</h1>
     <p>Genis urun yelpazemizden ihtiyaciniza uygun secimi yapin.</p>
   </div>
 </div>
 
-<section class="section">
+<section class="section" style="margin-top:var(--header-h)">
   <div class="container">
     <div style="display:grid;grid-template-columns:240px 1fr;gap:40px;align-items:start">
 
