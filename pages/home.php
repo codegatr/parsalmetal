@@ -34,11 +34,11 @@ if ($featuresRaw) {
     $aboutFeatures = array_filter(array_map('trim', explode("\n", $featuresRaw)));
 } else {
     $aboutFeatures = [
-        'Yuksek kaliteli hammadde ve sertifikali uretim',
-        'Deneyimli muhendis ve teknik kadro',
-        'Her olcekte projeye ozel cozum uretimi',
-        'Hizli teslimat ve zamaninda sevkiyat garanti',
-        'Satis sonrasi teknik destek ve danismanlik',
+        'Alumil, Linea Rossa ve Alfore yetkili üreticisi',
+        '20 yılı aşkın deneyim ve 850+ tamamlanan proje',
+        'İzmir genelinde ücretsiz ölçüm ve keşif hizmeti',
+        'Projeye özel tasarım ve anahtar teslim uygulama',
+        'Montaj sonrası satış desteği ve periyodik bakım',
     ];
 }
 
@@ -48,12 +48,12 @@ if ($whyRaw) {
     $whyDecoded = json_decode($whyRaw, true);
 }
 $whyItems = (!empty($whyDecoded) && is_array($whyDecoded)) ? $whyDecoded : [
-    ['num'=>'01','title'=>'Kalite Guventesi',  'desc'=>'ISO 9001 sertifikali uretim surecleriyle her urunde tutarli ve yuksek kalite sunuyoruz.'],
-    ['num'=>'02','title'=>'Uzman Kadro',        'desc'=>'Alaninda uzman muhendis ve teknisyen ekibimizle en karmasik projelere bile cozum uretiyoruz.'],
-    ['num'=>'03','title'=>'Hizli Teslimat',     'desc'=>'Optimize edilmis lojistik agimiz sayesinde siparisleri zamaninda ve hasarsiz teslim ediyoruz.'],
-    ['num'=>'04','title'=>'Rekabetci Fiyat',    'desc'=>'Sektordeki en rekabetci fiyatlarimizla butce dostu cozumler sunuyoruz.'],
-    ['num'=>'05','title'=>'7/24 Destek',        'desc'=>'Musteri memnuniyetini on planda tutarak kesintisiz destek ve danismanlik hizmeti veriyoruz.'],
-    ['num'=>'06','title'=>'Ozel Uretim',        'desc'=>'Her projeye ozel tasarim ve imalat yaparak musterilerimizin benzersiz ihtiyaclarini karsiliyoruz.'],
+    ['num'=>'01','title'=>'Yetkili Üretici',    'desc'=>'Alumil, Linea Rossa ve Alfore markaları yetkili üreticisi olarak orijinal sistem ve malzeme güvencesi sunuyoruz.'],
+    ['num'=>'02','title'=>'Ücretsiz Keşif',     'desc'=>'İzmir genelinde ücretsiz ölçüm ve keşif hizmeti veriyoruz. Yerinde inceleme ile en doğru çözümü belirliyoruz.'],
+    ['num'=>'03','title'=>'Zamanında Teslimat', 'desc'=>'Proje başlangıcında belirlenen teslimat tarihlerine sadık kalarak sürpriz gecikmeler yaşatmıyoruz.'],
+    ['num'=>'04','title'=>'Uygun Fiyat',        'desc'=>'Fabrikasyon üretim avantajımızla rekabetçi fiyatlar sunuyor, kaliteden ödün vermeden bütçenize saygı gösteriyoruz.'],
+    ['num'=>'05','title'=>'Satış Sonrası Destek','desc'=>'Montaj sonrasında da yanınızdayız. Periyodik bakım, onarım ve yedek parça temin hizmetleriyle her zaman ulaşabilirsiniz.'],
+    ['num'=>'06','title'=>'850+ Referans',       'desc'=>'İzmir''de konuttan ticariye, hastaneden okula 850''yi aşkın başarılı projemiz sektördeki güvenilirliğimizin kanıtıdır.'],
 ];
 
 $icons = [
