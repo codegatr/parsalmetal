@@ -873,3 +873,6 @@ h1,h2,h3,h4,h5 { font-family: var(--font-display); font-weight: 700; line-height
   .filter-btn:active { opacity: .7; }
   .nav-link:active { background: rgba(255,255,255,.1); }
 }
+
+/* Hizmet kartında görsel varsa ikon gizle */
+.service-img + .service-body .service-icon { display: none; }
