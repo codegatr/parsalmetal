@@ -4,6 +4,14 @@ require_once ROOT . '/admin/includes/admin_init.php';
 $pageTitle = 'Site Ayarlari';
 $pdo = getDB(); $flash = getFlash();
 
+// Logo / görsel kaldırma
+if (isset($_GET['remove']) && in_array($_GET['remove'], ['site_logo','about_image'])) {
+    saveSetting($_GET['remove'], '');
+    flash('success', 'Gorsel kaldirildi.');
+    header('Location: /admin/ayarlar.php');
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fields = ['site_title','site_slogan','site_email','site_phone','site_address','site_url',
                'meta_title','meta_description','footer_text','github_repo','github_token',

@@ -6,7 +6,7 @@
 
 /* ---------- HEADER SCROLL ---------- */
 (function () {
-  const hdr = document.querySelector('.site-header');
+  const hdr = document.getElementById('siteHeader');
   if (!hdr) return;
   const onScroll = () => hdr.classList.toggle('scrolled', window.scrollY > 40);
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -15,17 +15,19 @@
 
 /* ---------- HAMBURGER MENU ---------- */
 (function () {
-  const btn = document.querySelector('.hamburger');
-  const nav = document.querySelector('.mobile-nav');
+  const btn = document.getElementById('hamburger');
+  const nav = document.getElementById('mobileNav');
   if (!btn || !nav) return;
   btn.addEventListener('click', () => {
-    btn.classList.toggle('open');
-    nav.classList.toggle('open');
-    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+    const open = btn.classList.toggle('open');
+    nav.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
   });
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     btn.classList.remove('open');
     nav.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }));
 })();
