@@ -1,0 +1,11 @@
+{
+  "version": "1.0.1",
+  "date": "2025-01-01",
+  "description": "İlk yayın",
+  "files": [
+    "index.php",
+    "pages/home.php",
+    "assets/css/main.css",
+    "assets/js/main.js"
+  ]
+}
