@@ -12,7 +12,7 @@ if (session_status() === PHP_SESSION_NONE) session_start();
 $page = trim($_GET['page'] ?? 'home');
 $page = preg_replace('/[^a-z0-9_-]/', '', $page);
 
-$allowed = ['home','ürünler','hizmetler','hakkımızda','teklif','iletisim','kvkk','gizlilik','cerez','urun'];
+$allowed = ['home','urunler','hizmetler','hakkimizda','teklif','iletisim','kvkk','gizlilik','cerez','urun'];
 if (!in_array($page, $allowed)) $page = '404';
 
 $pageFile = __DIR__ . '/pages/' . $page . '.php';
