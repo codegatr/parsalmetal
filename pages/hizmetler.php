@@ -32,7 +32,7 @@ if ($slug) {
   </div>
 </div>
 
-<section class="section" style="margin-top:var(--header-h)">
+<section class="section">
   <div class="container">
     <?php if ($slug): ?>
     <div class="about-grid">

@@ -4,7 +4,7 @@ http_response_code(404);
 $pageMetaTitle = '404 - Sayfa Bulunamadi - ' . getSetting('site_title');
 $pageMetaDesc  = '';
 ?>
-<div style="min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:60px 20px;margin-top:var(--header-h)">
+<div style="min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:60px 20px">
   <div>
     <div style="font-size:120px;font-weight:900;color:#eee;line-height:1;font-family:'Montserrat',sans-serif">404</div>
     <h1 style="font-size:28px;font-weight:700;margin-bottom:12px;color:#1a1a1a">Sayfa Bulunamadi</h1>

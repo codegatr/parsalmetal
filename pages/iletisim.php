@@ -35,7 +35,7 @@ $pageMetaDesc  = 'Bize ulasin, sorularinizi yanitleyelim.';
   </div>
 </div>
 
-<section class="section" style="margin-top:var(--header-h)">
+<section class="section">
   <div class="container">
     <div class="contact-grid">
       <!-- Info -->

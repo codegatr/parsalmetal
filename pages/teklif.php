@@ -38,7 +38,7 @@ $pageMetaDesc  = 'Ucretsiz fiyat teklifi icin hemen basvurun.';
   </div>
 </div>
 
-<section class="section" style="margin-top:var(--header-h)">
+<section class="section">
   <div class="container" style="max-width:900px">
     <?php if ($sent): ?>
     <div class="alert alert-success" style="font-size:16px;padding:20px 24px">

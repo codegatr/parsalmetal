@@ -20,7 +20,7 @@ $relatedProducts = $related->fetchAll();
   </div>
 </div>
 
-<section class="section" style="margin-top:var(--header-h)">
+<section class="section">
   <div class="container">
     <div class="product-detail-grid">
       <div>

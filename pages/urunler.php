@@ -39,7 +39,7 @@ $pageMetaDesc  = 'Metal ve aluminyum urun katalogumuzu inceleyin.';
   </div>
 </div>
 
-<section class="section" style="margin-top:var(--header-h)">
+<section class="section">
   <div class="container">
     <div style="display:grid;grid-template-columns:240px 1fr;gap:40px;align-items:start">
 

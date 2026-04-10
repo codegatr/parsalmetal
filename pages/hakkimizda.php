@@ -12,7 +12,7 @@ $pageMetaDesc  = ($pg['meta_description'] ?? '') ?: '';
   </div>
 </div>
 
-<section class="section" style="margin-top:var(--header-h)">
+<section class="section">
   <div class="container">
     <div class="about-grid">
       <div class="about-img-wrap">

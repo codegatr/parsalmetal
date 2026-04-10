@@ -8,7 +8,7 @@ $pageMetaDesc  = $pg['meta_description'] ?? '';
     <h1><?= htmlspecialchars($pg['title'] ?? 'KVKK Aydinlatma Metni') ?></h1>
   </div>
 </div>
-<section class="section" style="margin-top:var(--header-h)">
+<section class="section">
   <div class="container">
     <div class="page-content">
       <?= $pg['content'] ?? '<p>Icerik henuz eklenmemistir.</p>' ?>
