@@ -198,13 +198,19 @@ $icons = [
     <div class="services-grid">
       <?php foreach ($services as $srv): ?>
       <div class="service-card">
+        <?php if (!empty($srv['image'])): ?>
+        <div class="service-img" style="background-image:url('<?= htmlspecialchars($srv['image']) ?>')"></div>
+        <?php else: ?>
         <div class="service-icon"><?= $icons[$srv['icon']] ?? $icons['settings'] ?></div>
-        <div class="service-name"><?= htmlspecialchars($srv['name']) ?></div>
-        <p class="service-desc"><?= htmlspecialchars($srv['short_desc']) ?></p>
-        <a href="/?page=hizmetler&slug=<?= htmlspecialchars($srv['slug']) ?>" class="service-link">
-          Detaylar
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
+        <?php endif; ?>
+        <div class="service-body">
+          <div class="service-name"><?= htmlspecialchars($srv['name']) ?></div>
+          <p class="service-desc"><?= htmlspecialchars($srv['short_desc']) ?></p>
+          <a href="/?page=hizmetler&slug=<?= htmlspecialchars($srv['slug']) ?>" class="service-link">
+            Detaylar
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
       </div>
       <?php endforeach; ?>
     </div>
