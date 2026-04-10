@@ -412,7 +412,7 @@ $icons = [
 <?php if ($whatsapp): ?>
 <a href="https://wa.me/<?= preg_replace('/\D/','',$whatsapp) ?>?text=Merhaba, bilgi almak istiyorum." target="_blank" rel="noopener"
    title="WhatsApp ile yaz"
-   style="position:fixed;bottom:88px;right:24px;z-index:998;width:52px;height:52px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:.3s;text-decoration:none"
+   style="position:fixed;bottom:calc(88px + env(safe-area-inset-bottom));right:max(24px, env(safe-area-inset-right));z-index:998;width:52px;height:52px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:.3s;text-decoration:none"
    onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 28px rgba(37,211,102,.6)'"
    onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(37,211,102,.45)'">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="white">

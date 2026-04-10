@@ -217,3 +217,21 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   window.addEventListener('scroll', () => btn.classList.toggle('show', window.scrollY > 400), { passive: true });
   btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 })();
+
+// iOS form zoom engelleme
+(function () {
+  if (!/iPad|iPhone|iPod/.test(navigator.userAgent)) return;
+  document.querySelectorAll('input, select, textarea').forEach(function(el) {
+    if (parseFloat(getComputedStyle(el).fontSize) < 16) el.style.fontSize = '16px';
+  });
+})();
+
+// Orientasyon değişiminde yeniden çiz
+window.addEventListener('orientationchange', function() {
+  setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 350);
+});
+
+// Touch cihazda :hover sorununu engelle
+if ('ontouchstart' in window) {
+  document.documentElement.classList.add('touch-device');
+}
