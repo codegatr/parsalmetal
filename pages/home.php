@@ -363,7 +363,7 @@ $icons = [
 <?php if ($sitePhone || $siteEmail || $siteAddress): ?>
 <section style="background:#1a1a1a;padding:40px 0">
   <div class="container">
-    <div style="display:grid;grid-template-columns:<?= ($sitePhone && $siteEmail && $siteAddress) ? 'repeat(3,1fr)' : 'repeat(2,1fr)' ?>;gap:24px;align-items:center">
+    <div class="iletisim-serit" style="display:grid;grid-template-columns:<?= ($sitePhone && $siteEmail && $siteAddress) ? 'repeat(3,1fr)' : 'repeat(2,1fr)' ?>;gap:24px;align-items:center">
       <?php if ($sitePhone): ?>
       <a href="tel:<?= preg_replace('/\D/','',$sitePhone) ?>" style="display:flex;align-items:center;gap:14px;text-decoration:none;padding:16px;border-radius:10px;transition:.2s" onmouseover="this.style.background='rgba(255,255,255,.05)'" onmouseout="this.style.background=''">
         <div style="width:44px;height:44px;background:rgba(192,57,43,.2);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
