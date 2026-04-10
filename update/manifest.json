@@ -1,24 +1,9 @@
 {
-  "version": "1.0.6",
+  "version": "1.0.7",
   "date": "2026-04-10",
-  "description": "Sidebar fix - tum admin sayfalarda sidebar gosteriliyor",
+  "description": "Guncelleme sistemi duzeltmesi + SQL migration destegi",
   "files": [
-    "admin/includes/admin_init.php",
-    "admin/includes/sidebar.php",
-    "admin/ayarlar.php",
-    "admin/dashboard.php",
-    "admin/guncelleme.php",
-    "admin/hizmetler.php",
-    "admin/istatistikler.php",
-    "admin/kategoriler.php",
-    "admin/kullanicilar.php",
-    "admin/mesajlar.php",
-    "admin/referanslar.php",
-    "admin/sayfalar.php",
-    "admin/slider.php",
-    "admin/talepler.php",
-    "admin/urunler.php",
-    "includes/auth.php",
-    "includes/functions.php"
-  ]
+    "admin/guncelleme.php"
+  ],
+  "migrations": []
 }
