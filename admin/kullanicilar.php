@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($id) {
         if ($password) { $hash = password_hash($password, PASSWORD_BCRYPT); $pdo->prepare('UPDATE ' . p() . 'users SET username=?,full_name=?,email=?,password=?,role=? WHERE id=?')->execute([$username,$fullname,$email,$hash,$role,$id]); }
         else { $pdo->prepare('UPDATE ' . p() . 'users SET username=?,full_name=?,email=?,role=? WHERE id=?')->execute([$username,$fullname,$email,$role,$id]); }
-        flash('success','Guncellendi.');
+        flash('success','Güncellendi.');
     } else {
         if (!$password) { flash('error','Sifre gerekli.'); header('Location: /admin/kullanicilar.php?action=add'); exit; }
         $hash = password_hash($password, PASSWORD_BCRYPT);
@@ -76,7 +76,7 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
           </select>
         </div>
         <div style="display:flex;gap:8px">
-          <button type="submit" class="btn btn-primary"><?= $action==='edit'?'Guncelle':'Kullanici Ekle' ?></button>
+          <button type="submit" class="btn btn-primary"><?= $action==='edit'?'Güncelle':'Kullanici Ekle' ?></button>
           <?php if ($action==='edit'): ?><a href="/admin/kullanicilar.php" class="btn btn-secondary">Iptal</a><?php endif; ?>
         </div>
       </form>

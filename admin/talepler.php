@@ -38,7 +38,7 @@ $statusLabels = ['new'=>'Yeni','read'=>'Okundu','replied'=>'Yanitlandi','closed'
 <div style="display:grid;grid-template-columns:1fr 300px;gap:24px">
   <div class="card"><div class="card-body">
     <table style="width:100%;border-collapse:collapse">
-      <?php foreach ([['Ad Soyad','name'],['Firma','company'],['E-posta','email'],['Telefon','phone'],['Urun','product']] as [$lbl,$fld]): ?>
+      <?php foreach ([['Ad Soyad','name'],['Firma','company'],['E-posta','email'],['Telefon','phone'],['Ürün','product']] as [$lbl,$fld]): ?>
       <tr><td style="padding:10px 0;color:#888;font-size:13px;width:140px;border-bottom:1px solid #f0f0f0"><?= $lbl ?></td><td style="padding:10px 0;font-size:14px;font-weight:600;border-bottom:1px solid #f0f0f0"><?= htmlspecialchars($detail[$fld] ?? '-') ?></td></tr>
       <?php endforeach; ?>
       <tr><td style="padding:10px 0;color:#888;font-size:13px">Tarih</td><td style="padding:10px 0;font-size:14px"><?= date('d.m.Y H:i', strtotime($detail['created_at'])) ?></td></tr>
@@ -65,7 +65,7 @@ $statusLabels = ['new'=>'Yeni','read'=>'Okundu','replied'=>'Yanitlandi','closed'
 <div class="page-actions"><h1>Teklif Talepleri <span style="font-size:14px;font-weight:400;color:#888">(<?= count($quotes) ?>)</span></h1></div>
 <div class="card"><div class="table-wrap">
   <table class="admin-table">
-    <thead><tr><th>#</th><th>Ad / Firma</th><th>Telefon</th><th>Urun</th><th>Tarih</th><th>Durum</th><th style="text-align:right">Islemler</th></tr></thead>
+    <thead><tr><th>#</th><th>Ad / Firma</th><th>Telefon</th><th>Ürün</th><th>Tarih</th><th>Durum</th><th style="text-align:right">Islemler</th></tr></thead>
     <tbody>
       <?php foreach ($quotes as $q): ?>
       <tr style="<?= $q['status']==='new'?'font-weight:600':'' ?>">

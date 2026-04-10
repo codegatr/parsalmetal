@@ -31,11 +31,11 @@ $st2 = $pdo->prepare('SELECT pr.*, c.name as cat_name FROM ' . p() . 'products p
 $st2->execute($params);
 $products = $st2->fetchAll();
 
-$pageMetaTitle = 'Urunler - ' . getSetting('site_title');
-$pageMetaDesc  = 'Metal ve aluminyum urun katalogumuzu inceleyin.';
+$pageMetaTitle = 'Ürünler - ' . getSetting('site_title');
+$pageMetaDesc  = 'Metal ve alüminyum urun katalogumuzu inceleyin.';
 ?>
-    <h1>Urun Katalogu</h1>
-    <p>Genis urun yelpazemizden ihtiyaciniza uygun secimi yapin.</p>
+    <h1>Ürün Katalogu</h1>
+    <p>Geniş urun yelpazemizden ihtiyacınıza uygun secimi yapin.</p>
   </div>
 </div>
 
@@ -47,19 +47,19 @@ $pageMetaDesc  = 'Metal ve aluminyum urun katalogumuzu inceleyin.';
       <aside>
         <div style="background:#f8f8f8;border-radius:12px;padding:24px;margin-bottom:20px">
           <h3 style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#666;margin-bottom:16px">Kategoriler</h3>
-          <a href="/?page=urunler" style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:8px;font-size:14px;margin-bottom:4px;<?= !$catSlug ? 'background:#c0392b;color:#fff;font-weight:600' : 'color:#333' ?>">
-            Tumu <span style="font-size:12px"><?= $total ?></span>
+          <a href="/?page=ürünler" style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:8px;font-size:14px;margin-bottom:4px;<?= !$catSlug ? 'background:#c0392b;color:#fff;font-weight:600' : 'color:#333' ?>">
+            Tümü <span style="font-size:12px"><?= $total ?></span>
           </a>
           <?php foreach ($cats as $c): ?>
-          <a href="/?page=urunler&cat=<?= htmlspecialchars($c['slug']) ?>" style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:8px;font-size:14px;margin-bottom:4px;<?= $catSlug === $c['slug'] ? 'background:#c0392b;color:#fff;font-weight:600' : 'color:#333' ?>">
+          <a href="/?page=ürünler&cat=<?= htmlspecialchars($c['slug']) ?>" style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:8px;font-size:14px;margin-bottom:4px;<?= $catSlug === $c['slug'] ? 'background:#c0392b;color:#fff;font-weight:600' : 'color:#333' ?>">
             <?= htmlspecialchars($c['name']) ?>
           </a>
           <?php endforeach; ?>
         </div>
 
         <div style="background:#1a1a1a;border-radius:12px;padding:24px;color:#fff">
-          <h3 style="font-size:15px;font-weight:700;margin-bottom:10px">Teklif Alin</h3>
-          <p style="font-size:13px;color:rgba(255,255,255,.6);margin-bottom:16px">Ihtiyaciniza ozel fiyat almak icin hemen basvurun.</p>
+          <h3 style="font-size:15px;font-weight:700;margin-bottom:10px">Teklif Alın</h3>
+          <p style="font-size:13px;color:rgba(255,255,255,.6);margin-bottom:16px">İhtiyacınıza ozel fiyat almak icin hemen başvurun.</p>
           <a href="/?page=teklif" style="display:block;text-align:center;padding:11px;background:#c0392b;color:#fff;border-radius:8px;font-size:14px;font-weight:700">Teklif Al</a>
         </div>
       </aside>
@@ -68,9 +68,9 @@ $pageMetaDesc  = 'Metal ve aluminyum urun katalogumuzu inceleyin.';
       <div>
         <!-- Search -->
         <form method="GET" action="/" style="margin-bottom:28px;display:flex;gap:10px">
-          <input type="hidden" name="page" value="urunler">
+          <input type="hidden" name="page" value="ürünler">
           <?php if ($catSlug): ?><input type="hidden" name="cat" value="<?= htmlspecialchars($catSlug) ?>"><?php endif; ?>
-          <input type="text" name="q" value="<?= htmlspecialchars($search) ?>" placeholder="Urun ara..." style="flex:1;padding:11px 16px;border:1.5px solid #ddd;border-radius:8px;font-size:14px;outline:none">
+          <input type="text" name="q" value="<?= htmlspecialchars($search) ?>" placeholder="Ürün ara..." style="flex:1;padding:11px 16px;border:1.5px solid #ddd;border-radius:8px;font-size:14px;outline:none">
           <button type="submit" style="padding:11px 22px;background:#c0392b;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer">Ara</button>
         </form>
 
@@ -101,11 +101,11 @@ $pageMetaDesc  = 'Metal ve aluminyum urun katalogumuzu inceleyin.';
           <?php endforeach; ?>
           <?php if (empty($products)): ?>
           <div style="grid-column:1/-1;text-align:center;padding:80px 0;color:#999">
-            <p>Urun bulunamadi.</p>
+            <p>Ürün bulunamadi.</p>
           </div>
           <?php endif; ?>
         </div>
-        <?php echo paginate($total, $limit, $page, '/?page=urunler&cat=' . urlencode($catSlug) . '&q=' . urlencode($search) . '&'); ?>
+        <?php echo paginate($total, $limit, $page, '/?page=ürünler&cat=' . urlencode($catSlug) . '&q=' . urlencode($search) . '&'); ?>
       </div>
     </div>
   </div>

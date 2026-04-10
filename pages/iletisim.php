@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ->execute([$name,$email,$phone,$subject,$message]);
         $siteEmail = getSetting('site_email','');
         if ($siteEmail) {
-            @mail($siteEmail, 'Iletisim: ' . $subject, "Ad: $name\nEmail: $email\nTel: $phone\nMesaj:\n$message", 'From: ' . $siteEmail);
+            @mail($siteEmail, 'İletişim: ' . $subject, "Ad: $name\nEmail: $email\nTel: $phone\nMesaj:\n$message", 'From: ' . $siteEmail);
         }
         $sent = true;
     }
@@ -27,7 +27,7 @@ $sitePhone   = getSetting('site_phone','');
 $siteEmail   = getSetting('site_email','');
 $siteAddress = getSetting('site_address','');
 $mapsEmbed   = getSetting('maps_embed','');
-$pageMetaTitle = 'Iletisim - ' . getSetting('site_title');
+$pageMetaTitle = 'İletişim - ' . getSetting('site_title');
 $pageMetaDesc  = 'Bize ulasin, sorularinizi yanitleyelim.';
 ?>
     <h1>Bize Ulasin</h1>
@@ -40,7 +40,7 @@ $pageMetaDesc  = 'Bize ulasin, sorularinizi yanitleyelim.';
     <div class="contact-grid">
       <!-- Info -->
       <div>
-        <div class="section-label">Iletisim Bilgileri</div>
+        <div class="section-label">İletişim Bilgileri</div>
         <h2 class="section-title" style="margin-bottom:32px">Sizinle <span>Konusalim</span></h2>
         <?php if ($sitePhone): ?>
         <div class="contact-card">
@@ -76,7 +76,7 @@ $pageMetaDesc  = 'Bize ulasin, sorularinizi yanitleyelim.';
       <!-- Form -->
       <div>
         <?php if ($sent): ?>
-        <div class="alert alert-success">Mesajiniz alindi, en kisa surede donecegiz!</div>
+        <div class="alert alert-success">Mesajiniz alındı, en kısa sürede donecegiz!</div>
         <?php endif; ?>
         <?php foreach ($errors as $e): ?><div class="alert alert-error"><?= htmlspecialchars($e) ?></div><?php endforeach; ?>
         <div style="background:#f8f8f8;border-radius:16px;padding:40px;border:1px solid #eaedf0">

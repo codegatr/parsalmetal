@@ -1,7 +1,7 @@
 <?php
 define('ROOT', dirname(__DIR__));
 require_once ROOT . '/admin/includes/admin_init.php';
-$pageTitle = 'Iletisim Mesajlari';
+$pageTitle = 'İletişim Mesajlari';
 $pdo = getDB(); $flash = getFlash();
 $action = $_GET['action'] ?? 'list'; $id = (int)($_GET['id'] ?? 0);
 if ($action === 'delete' && $id) { $pdo->prepare('DELETE FROM ' . p() . 'contacts WHERE id=?')->execute([$id]); flash('success','Silindi.'); header('Location: /admin/mesajlar.php'); exit; }
@@ -35,7 +35,7 @@ if ($action === 'view' && $id) {
   <a href="mailto:<?= htmlspecialchars($detail['email']) ?>" class="btn btn-primary">E-posta ile Yanitle</a>
 </div></div>
 <?php else: ?>
-<div class="page-actions"><h1>Iletisim Mesajlari <span style="font-size:14px;font-weight:400;color:#888">(<?= count($msgs) ?>)</span></h1></div>
+<div class="page-actions"><h1>İletişim Mesajlari <span style="font-size:14px;font-weight:400;color:#888">(<?= count($msgs) ?>)</span></h1></div>
 <div class="card"><div class="table-wrap">
   <table class="admin-table">
     <thead><tr><th>Ad</th><th>E-posta</th><th>Konu</th><th>Tarih</th><th>Durum</th><th style="text-align:right">Islemler</th></tr></thead>

@@ -7,7 +7,7 @@ $action = $_GET['action'] ?? 'list'; $id = (int)($_GET['id'] ?? 0);
 if ($action === 'delete' && $id) { $pdo->prepare('DELETE FROM ' . p() . 'stats WHERE id=?')->execute([$id]); flash('success','Silindi.'); header('Location: /admin/istatistikler.php'); exit; }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $label = trim($_POST['label'] ?? ''); $value = trim($_POST['value'] ?? ''); $icon = trim($_POST['icon'] ?? 'star'); $sort = (int)($_POST['sort_order'] ?? 0);
-    if ($id) { $pdo->prepare('UPDATE ' . p() . 'stats SET label=?,value=?,icon=?,sort_order=? WHERE id=?')->execute([$label,$value,$icon,$sort,$id]); flash('success','Guncellendi.'); }
+    if ($id) { $pdo->prepare('UPDATE ' . p() . 'stats SET label=?,value=?,icon=?,sort_order=? WHERE id=?')->execute([$label,$value,$icon,$sort,$id]); flash('success','Güncellendi.'); }
     else { $pdo->prepare('INSERT INTO ' . p() . 'stats (label,value,icon,sort_order) VALUES (?,?,?,?)')->execute([$label,$value,$icon,$sort]); flash('success','Eklendi.'); }
     header('Location: /admin/istatistikler.php'); exit;
 }
@@ -23,7 +23,7 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
 <?php require ROOT . '/admin/includes/header.php'; ?>
 <main class="admin-main">
 <?php if (!empty($flash)): ?><div class="alert alert-<?= $flash['type'] ?>"><?= htmlspecialchars($flash['msg']) ?></div><?php endif; ?>
-<p style="font-size:13px;color:#888;margin-bottom:16px">Stats bar ana sayfada ve hakkimizda sayfasinda gozukur (kirmizi bolum). Sayac animasyonu otomatik calisir.</p>
+<p style="font-size:13px;color:#888;margin-bottom:16px">Stats bar ana sayfada ve hakkımızda sayfasinda gozukur (kirmizi bolum). Sayac animasyonu otomatik calisir.</p>
 <div style="display:grid;grid-template-columns:1fr 360px;gap:24px">
   <div>
     <div class="card"><div class="table-wrap">
@@ -54,7 +54,7 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
           <div class="form-group" style="margin-bottom:14px"><label class="form-label">Sira</label><input type="number" name="sort_order" class="form-control" value="<?= (int)($editing['sort_order'] ?? 0) ?>"></div>
           <div class="form-group" style="margin-bottom:16px"><label class="form-label">Ikon (lutfen biri: calendar,users,check-circle,map-pin,star,trophy)</label><input type="text" name="icon" class="form-control" value="<?= htmlspecialchars($editing['icon'] ?? 'star') ?>"></div>
           <div style="display:flex;gap:8px">
-            <button type="submit" class="btn btn-primary"><?= $action==='edit'?'Guncelle':'Ekle' ?></button>
+            <button type="submit" class="btn btn-primary"><?= $action==='edit'?'Güncelle':'Ekle' ?></button>
             <?php if ($action==='edit'): ?><a href="/admin/istatistikler.php" class="btn btn-secondary">Iptal</a><?php endif; ?>
           </div>
         </form>

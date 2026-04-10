@@ -3,10 +3,10 @@ define('ROOT', dirname(__DIR__));
 require_once ROOT . '/admin/includes/admin_init.php';
 $pageTitle = 'Sayfalar';
 $pdo = getDB(); $flash = getFlash();
-$slug = $_GET['slug'] ?? 'hakkimizda';
-$allowed = ['hakkimizda','kvkk','gizlilik','cerez'];
-if (!in_array($slug, $allowed)) $slug = 'hakkimizda';
-$pageTitles = ['hakkimizda'=>'Hakkimizda','kvkk'=>'KVKK Metni','gizlilik'=>'Gizlilik Politikasi','cerez'=>'Cerez Politikasi'];
+$slug = $_GET['slug'] ?? 'hakkımızda';
+$allowed = ['hakkımızda','kvkk','gizlilik','cerez'];
+if (!in_array($slug, $allowed)) $slug = 'hakkımızda';
+$pageTitles = ['hakkımızda'=>'Hakkımızda','kvkk'=>'KVKK Metni','gizlilik'=>'Gizlilik Politikasi','cerez'=>'Cerez Politikasi'];
 $page = $pdo->prepare('SELECT * FROM ' . p() . 'pages WHERE slug=?'); $page->execute([$slug]); $page = $page->fetch();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title   = trim($_POST['title'] ?? '');
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $pdo->prepare('INSERT INTO ' . p() . 'pages (slug,title,content,meta_title,meta_description) VALUES (?,?,?,?,?)')->execute([$slug,$title,$content,$mt,$md]);
     }
-    flash('success','Sayfa guncellendi.'); header('Location: /admin/sayfalar.php?slug=' . $slug); exit;
+    flash('success','Sayfa güncellendi.'); header('Location: /admin/sayfalar.php?slug=' . $slug); exit;
 }
 ?>
 <!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">

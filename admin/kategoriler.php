@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim($_POST['name'] ?? ''); $slug = trim($_POST['slug'] ?? '') ?: slugify($name); $sort = (int)($_POST['sort_order'] ?? 0); $active = isset($_POST['is_active']) ? 1 : 0;
     if ($id) {
         $pdo->prepare('UPDATE ' . p() . 'categories SET name=?,slug=?,sort_order=?,is_active=? WHERE id=?')->execute([$name,$slug,$sort,$active,$id]);
-        flash('success','Guncellendi.');
+        flash('success','Güncellendi.');
     } else {
         $pdo->prepare('INSERT INTO ' . p() . 'categories (name,slug,sort_order,is_active) VALUES (?,?,?,?)')->execute([$name,$slug,$sort,$active]);
         flash('success','Eklendi.');
@@ -34,7 +34,7 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
     <div class="page-actions" style="margin-bottom:16px"><h1>Kategoriler</h1></div>
     <div class="card"><div class="table-wrap">
       <table class="admin-table">
-        <thead><tr><th>Kategori</th><th>Slug</th><th>Urun</th><th>Durum</th><th style="text-align:right">Islemler</th></tr></thead>
+        <thead><tr><th>Kategori</th><th>Slug</th><th>Ürün</th><th>Durum</th><th style="text-align:right">Islemler</th></tr></thead>
         <tbody>
           <?php foreach ($cats as $c): ?>
           <tr>
@@ -76,7 +76,7 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
           <label for="isActive">Aktif</label>
         </div>
         <div style="display:flex;gap:8px">
-          <button type="submit" class="btn btn-primary"><?= $action==='edit'?'Guncelle':'Ekle' ?></button>
+          <button type="submit" class="btn btn-primary"><?= $action==='edit'?'Güncelle':'Ekle' ?></button>
           <?php if ($action==='edit'): ?><a href="/admin/kategoriler.php" class="btn btn-secondary">Iptal</a><?php endif; ?>
         </div>
       </form>

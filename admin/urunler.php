@@ -1,7 +1,7 @@
 <?php
 define('ROOT', dirname(__DIR__));
 require_once ROOT . '/admin/includes/admin_init.php';
-$pageTitle = 'Urunler';
+$pageTitle = 'Ürünler';
 $pdo = getDB();
 $flash = getFlash();
 $action = $_GET['action'] ?? 'list';
@@ -12,11 +12,11 @@ if ($action === 'delete' && $id) {
     $img = $r->fetchColumn();
     if ($img && file_exists(ROOT . $img)) unlink(ROOT . $img);
     $pdo->prepare('DELETE FROM ' . p() . 'products WHERE id=?')->execute([$id]);
-    flash('success','Urun silindi.'); header('Location: /admin/urunler.php'); exit;
+    flash('success','Ürün silindi.'); header('Location: /admin/ürünler.php'); exit;
 }
 if ($action === 'toggle' && $id) {
     $pdo->prepare('UPDATE ' . p() . 'products SET is_active=1-is_active WHERE id=?')->execute([$id]);
-    header('Location: /admin/urunler.php'); exit;
+    header('Location: /admin/ürünler.php'); exit;
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name     = trim($_POST['name'] ?? '');
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!$image) $image = $existing->fetchColumn();
         $pdo->prepare('UPDATE ' . p() . 'products SET name=?,category_id=?,slug=?,short_desc=?,description=?,specs=?,sort_order=?,is_featured=?,is_active=?,image=? WHERE id=?')
             ->execute([$name,$cat,$slug,$short,$desc,$specs,$sort,$featured,$active,$image,$id]);
-        flash('success','Urun guncellendi.');
+        flash('success','Ürün güncellendi.');
     } else {
         // Ensure unique slug
         $base = $slug; $i = 1;
@@ -47,9 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         $pdo->prepare('INSERT INTO ' . p() . 'products (name,category_id,slug,short_desc,description,specs,sort_order,is_featured,is_active,image) VALUES (?,?,?,?,?,?,?,?,?,?)')
             ->execute([$name,$cat,$slug,$short,$desc,$specs,$sort,$featured,$active,$image]);
-        flash('success','Urun eklendi.');
+        flash('success','Ürün eklendi.');
     }
-    header('Location: /admin/urunler.php'); exit;
+    header('Location: /admin/ürünler.php'); exit;
 }
 $cats = $pdo->query('SELECT * FROM ' . p() . 'categories WHERE is_active=1 ORDER BY sort_order')->fetchAll();
 $products = $pdo->query('SELECT pr.*,c.name as cat_name FROM ' . p() . 'products pr LEFT JOIN ' . p() . 'categories c ON c.id=pr.category_id ORDER BY pr.sort_order,pr.id')->fetchAll();
@@ -59,7 +59,7 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
 <!DOCTYPE html>
 <html lang="tr">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Urunler - Admin</title>
+<title>Ürünler - Admin</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/admin.css?v=<?= APP_VERSION ?>">
 </head>
@@ -71,14 +71,14 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
 
 <?php if ($action === 'add' || $action === 'edit'): ?>
 <div class="page-actions">
-  <h1><?= $action==='edit'?'Urun Duzenle':'Yeni Urun Ekle' ?></h1>
-  <a href="/admin/urunler.php" class="btn btn-secondary">← Geri</a>
+  <h1><?= $action==='edit'?'Ürün Duzenle':'Yeni Ürün Ekle' ?></h1>
+  <a href="/admin/ürünler.php" class="btn btn-secondary">← Geri</a>
 </div>
 <div class="card"><div class="card-body">
 <form method="POST" enctype="multipart/form-data">
   <div class="form-grid">
     <div class="form-group">
-      <label class="form-label">Urun Adi *</label>
+      <label class="form-label">Ürün Adi *</label>
       <input type="text" name="name" class="form-control" value="<?= htmlspecialchars($editing['name'] ?? '') ?>" required oninput="if(!document.getElementById('slug').value.length||!<?= $id ?>)document.getElementById('slug').value=this.value.toLowerCase()">
     </div>
     <div class="form-group">
@@ -108,11 +108,11 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
     </div>
     <div class="form-group full">
       <label class="form-label">Teknik Ozellikler</label>
-      <textarea name="specs" class="form-control" rows="4" placeholder="Malzeme: Aluminyum&#10;Kalinlik: 2mm&#10;Uzunluk: 6000mm"><?= htmlspecialchars($editing['specs'] ?? '') ?></textarea>
+      <textarea name="specs" class="form-control" rows="4" placeholder="Malzeme: Alüminyum&#10;Kalinlik: 2mm&#10;Uzunluk: 6000mm"><?= htmlspecialchars($editing['specs'] ?? '') ?></textarea>
       <span class="form-hint">Her satira bir ozellik: "Anahtar: Deger" formatinda yazin.</span>
     </div>
     <div class="form-group full">
-      <label class="form-label">Gorsel</label>
+      <label class="form-label">Görsel</label>
       <?php if (!empty($editing['image'])): ?>
       <img src="<?= htmlspecialchars($editing['image']) ?>" id="imgPreview" style="max-height:150px;border-radius:8px;margin-bottom:8px">
       <?php else: ?>
@@ -127,7 +127,7 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
     <div class="form-group">
       <div class="form-check" style="margin-top:28px">
         <input type="checkbox" name="is_featured" id="is_featured" <?= !empty($editing['is_featured']) ? 'checked':'' ?>>
-        <label for="is_featured">One Cikan Urun</label>
+        <label for="is_featured">Öne Çıkan Ürün</label>
       </div>
     </div>
     <div class="form-group">
@@ -140,24 +140,24 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
   <div style="margin-top:24px;display:flex;gap:10px">
     <button type="submit" class="btn btn-primary">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
-      <?= $action==='edit'?'Guncelle':'Ekle' ?>
+      <?= $action==='edit'?'Güncelle':'Ekle' ?>
     </button>
-    <a href="/admin/urunler.php" class="btn btn-secondary">Iptal</a>
+    <a href="/admin/ürünler.php" class="btn btn-secondary">Iptal</a>
   </div>
 </form>
 </div></div>
 
 <?php else: ?>
 <div class="page-actions">
-  <h1>Urunler <span style="font-size:14px;font-weight:400;color:#888">(<?= count($products) ?>)</span></h1>
-  <a href="/admin/urunler.php?action=add" class="btn btn-primary">
+  <h1>Ürünler <span style="font-size:14px;font-weight:400;color:#888">(<?= count($products) ?>)</span></h1>
+  <a href="/admin/ürünler.php?action=add" class="btn btn-primary">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-    Yeni Urun
+    Yeni Ürün
   </a>
 </div>
 <div class="card"><div class="table-wrap">
   <table class="admin-table">
-    <thead><tr><th>Gorsel</th><th>Urun</th><th>Kategori</th><th>Durum</th><th style="text-align:right">Islemler</th></tr></thead>
+    <thead><tr><th>Görsel</th><th>Ürün</th><th>Kategori</th><th>Durum</th><th style="text-align:right">Islemler</th></tr></thead>
     <tbody>
       <?php foreach ($products as $pr): ?>
       <tr>
@@ -168,16 +168,16 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
         </td>
         <td><?= htmlspecialchars($pr['cat_name'] ?? '-') ?></td>
         <td>
-          <a href="/admin/urunler.php?action=toggle&id=<?= $pr['id'] ?>">
+          <a href="/admin/ürünler.php?action=toggle&id=<?= $pr['id'] ?>">
             <span class="badge badge-<?= $pr['is_active'] ? 'active' : 'passive' ?>"><?= $pr['is_active'] ? '● Aktif' : '○ Pasif' ?></span>
           </a>
-          <?php if ($pr['is_featured']): ?><span class="badge badge-read" style="margin-left:4px">★ One Cikan</span><?php endif; ?>
+          <?php if ($pr['is_featured']): ?><span class="badge badge-read" style="margin-left:4px">★ Öne Çıkan</span><?php endif; ?>
         </td>
         <td style="text-align:right">
           <div style="display:flex;gap:6px;justify-content:flex-end">
             <a href="/?page=urun&slug=<?= htmlspecialchars($pr['slug']) ?>" target="_blank" class="btn btn-sm btn-secondary">Gor</a>
-            <a href="/admin/urunler.php?action=edit&id=<?= $pr['id'] ?>" class="btn btn-sm btn-secondary">Duzenle</a>
-            <a href="/admin/urunler.php?action=delete&id=<?= $pr['id'] ?>" class="btn btn-sm btn-danger" data-confirm="Urun silinecek, emin misiniz?">Sil</a>
+            <a href="/admin/ürünler.php?action=edit&id=<?= $pr['id'] ?>" class="btn btn-sm btn-secondary">Duzenle</a>
+            <a href="/admin/ürünler.php?action=delete&id=<?= $pr['id'] ?>" class="btn btn-sm btn-danger" data-confirm="Ürün silinecek, emin misiniz?">Sil</a>
           </div>
         </td>
       </tr>

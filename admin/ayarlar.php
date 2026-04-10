@@ -7,7 +7,7 @@ $pdo = getDB(); $flash = getFlash();
 // Logo / görsel kaldırma
 if (isset($_GET['remove']) && in_array($_GET['remove'], ['site_logo','about_image'])) {
     saveSetting($_GET['remove'], '');
-    flash('success', 'Gorsel kaldirildi.');
+    flash('success', 'Görsel kaldırildi.');
     header('Location: /admin/ayarlar.php');
     exit;
 }
@@ -86,7 +86,7 @@ foreach (['site_title','site_slogan','site_email','site_phone','site_address','s
         <input type="url" name="site_url" class="form-control" value="<?= htmlspecialchars($s['site_url']) ?>">
       </div>
       <div class="form-group">
-        <label class="form-label">Kurulis Yili (Hakkimizda rozeti)</label>
+        <label class="form-label">Kurulis Yili (Hakkımızda rozeti)</label>
         <input type="number" name="founded_year" class="form-control" value="<?= htmlspecialchars($s['founded_year'] ?: '25') ?>">
         <span class="form-hint">Girilen rakam + "yil" yazisi gorunur.</span>
       </div>
@@ -96,7 +96,7 @@ foreach (['site_title','site_slogan','site_email','site_phone','site_address','s
 
 <!-- LOGO + GORSEL -->
 <div class="card" style="margin-bottom:20px">
-  <div class="card-header"><div class="card-title">Gorsel ve Logo</div></div>
+  <div class="card-header"><div class="card-title">Görsel ve Logo</div></div>
   <div class="card-body">
     <div class="form-grid">
       <div class="form-group">
@@ -104,7 +104,7 @@ foreach (['site_title','site_slogan','site_email','site_phone','site_address','s
         <?php if ($s['site_logo']): ?>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
           <img src="<?= htmlspecialchars($s['site_logo']) ?>" id="logoPreview" style="max-height:60px;border-radius:6px">
-          <a href="/admin/ayarlar.php?remove=site_logo" class="btn btn-sm btn-danger" onclick="return confirm('Logo kaldirilsin mi?')" style="flex-shrink:0">Kaldir</a>
+          <a href="/admin/ayarlar.php?remove=site_logo" class="btn btn-sm btn-danger" onclick="return confirm('Logo kaldırilsin mi?')" style="flex-shrink:0">Kaldır</a>
         </div>
         <?php else: ?><img id="logoPreview" src="" style="max-height:60px;margin-bottom:8px;border-radius:6px;display:none"><?php endif; ?>
         <div class="upload-area" onclick="document.getElementById('logoFile').click()">
@@ -113,15 +113,15 @@ foreach (['site_title','site_slogan','site_email','site_phone','site_address','s
         <input type="file" id="logoFile" name="site_logo" accept="image/*" data-preview="logoPreview" style="display:none">
       </div>
       <div class="form-group">
-        <label class="form-label">Hakkimizda Gorseli</label>
+        <label class="form-label">Hakkımızda Görseli</label>
         <?php if ($s['about_image']): ?>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
           <img src="<?= htmlspecialchars($s['about_image']) ?>" id="aboutImgPreview" style="max-height:80px;border-radius:6px">
-          <a href="/admin/ayarlar.php?remove=about_image" class="btn btn-sm btn-danger" onclick="return confirm('Gorsel kaldirilsin mi?')" style="flex-shrink:0">Kaldir</a>
+          <a href="/admin/ayarlar.php?remove=about_image" class="btn btn-sm btn-danger" onclick="return confirm('Görsel kaldırilsin mi?')" style="flex-shrink:0">Kaldır</a>
         </div>
         <?php else: ?><img id="aboutImgPreview" src="" style="max-height:80px;margin-bottom:8px;border-radius:6px;display:none"><?php endif; ?>
         <div class="upload-area" onclick="document.getElementById('aboutImgFile').click()">
-          <p style="font-size:12px;color:#aaa">Hakkimizda bolumu sol gorsel</p>
+          <p style="font-size:12px;color:#aaa">Hakkımızda bolumu sol görsel</p>
         </div>
         <input type="file" id="aboutImgFile" name="about_image" accept="image/*" data-preview="aboutImgPreview" style="display:none">
       </div>
@@ -131,10 +131,10 @@ foreach (['site_title','site_slogan','site_email','site_phone','site_address','s
 
 <!-- HAKKIMIZDA -->
 <div class="card" style="margin-bottom:20px">
-  <div class="card-header"><div class="card-title">Hakkimizda / Misyon / Vizyon</div></div>
+  <div class="card-header"><div class="card-title">Hakkımızda / Misyon / Vizyon</div></div>
   <div class="card-body">
     <div class="form-group" style="margin-bottom:16px">
-      <label class="form-label">Hakkimizda Kisa Aciklama (Ana sayfa)</label>
+      <label class="form-label">Hakkımızda Kisa Aciklama (Ana sayfa)</label>
       <textarea name="about_short" class="form-control" rows="3"><?= htmlspecialchars($s['about_short']) ?></textarea>
     </div>
     <div class="form-grid">
@@ -200,7 +200,7 @@ foreach (['site_title','site_slogan','site_email','site_phone','site_address','s
 
 <!-- GITHUB -->
 <div class="card" style="margin-bottom:20px">
-  <div class="card-header"><div class="card-title">GitHub Guncelleme Ayarlari</div></div>
+  <div class="card-header"><div class="card-title">GitHub Güncelleme Ayarlari</div></div>
   <div class="card-body">
     <div class="form-grid">
       <div class="form-group">

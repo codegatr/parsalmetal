@@ -19,7 +19,7 @@ $admin = currentAdmin();
       <div class="admin-avatar"><?= strtoupper(substr($admin['name'] ?: $admin['username'],0,1)) ?></div>
       <span><?= htmlspecialchars($admin['name'] ?: $admin['username']) ?></span>
     </div>
-    <a href="/admin/logout.php" class="btn-logout">Cikis</a>
+    <a href="/admin/logout.php" class="btn-logout">Çıkış</a>
   </div>
 </header>
 <style>

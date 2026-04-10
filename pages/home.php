@@ -3,7 +3,7 @@
 if (!isset($pdo)) { require_once ROOT . '/includes/db.php'; }
 if (!function_exists('getSetting')) { require_once ROOT . '/includes/functions.php'; }
 
-$pageMetaTitle = getSetting('meta_title', getSetting('site_title') . ' - Metal ve Aluminyum Cozumleri');
+$pageMetaTitle = getSetting('meta_title', getSetting('site_title') . ' - Metal ve Alüminyum Çözümleri');
 $pageMetaDesc  = getSetting('meta_description', '');
 
 require_once ROOT . '/includes/header.php';
@@ -22,9 +22,9 @@ $certs    = $pdo->query('SELECT * FROM ' . p() . 'certificates WHERE is_active=1
 $sitePhone   = getSetting('site_phone', '');
 $siteEmail   = getSetting('site_email', '');
 $siteAddress = getSetting('site_address', '');
-$siteSlogan  = getSetting('site_slogan', 'Metal ve Aluminyum Cozumleri');
+$siteSlogan  = getSetting('site_slogan', 'Metal ve Alüminyum Çözümleri');
 $aboutImg    = getSetting('about_image', '');
-$aboutShort  = getSetting('about_short', 'Metal ve aluminyum sektorunde yillardir edindigi deneyimle musterilerine en yuksek kalitede urun ve hizmetler sunmaktadir.');
+$aboutShort  = getSetting('about_short', 'Metal ve alüminyum sektöründe yıllardır edindigi deneyimle müşterilerine en yüksek kalitede urun ve hizmetler sunmaktadır.');
 $foundedYear = getSetting('founded_year', '25');
 $whatsapp    = getSetting('site_whatsapp', preg_replace('/\D/', '', $sitePhone));
 
@@ -49,11 +49,11 @@ if ($whyRaw) {
 }
 $whyItems = (!empty($whyDecoded) && is_array($whyDecoded)) ? $whyDecoded : [
     ['num'=>'01','title'=>'Yetkili Üretici',     'desc'=>'Alumil, Linea Rossa ve Alfore markalari yetkili üreticisi olarak orijinal sistem ve malzeme güvencesi sunuyoruz.'],
-    ['num'=>'02','title'=>'Ücretsiz Kesif',      'desc'=>'Izmir genelinde ücretsiz ölcüm ve kesif hizmeti veriyoruz. Yerinde inceleme ile en dogru cözümü belirliyoruz.'],
+    ['num'=>'02','title'=>'Ücretsiz Keşif',      'desc'=>'İzmir genelinde ücretsiz ölcüm ve keşif hizmeti veriyoruz. Yerinde inceleme ile en doğru çözümü belirliyoruz.'],
     ['num'=>'03','title'=>'Zamaninda Teslimat',  'desc'=>'Proje baslangicinda belirlenen teslimat tarihlerine sadik kalarak sürpriz gecikmeler yasatmiyoruz.'],
     ['num'=>'04','title'=>'Uygun Fiyat',         'desc'=>'Fabrikasyon üretim avantajimizla rekabetci fiyatlar sunuyor, kaliteden ödün vermeden bütcenize saygi gösteriyoruz.'],
     ['num'=>'05','title'=>'Satis Sonrasi Destek','desc'=>'Montaj sonrasinda da yaninizdayiz. Periyodik bakim, onarim ve yedek parca temin hizmetleriyle her zaman ulasabilirsiniz.'],
-    ['num'=>'06','title'=>'850+ Referans',        'desc'=>'Izmir genelinde konuttan ticariye, hastaneden okula 850+ basarili projemiz sektördeki güvenilirligimizin kaniti.'],
+    ['num'=>'06','title'=>'850+ Referans',        'desc'=>'İzmir genelinde konuttan ticariye, hastaneden okula 850+ basarili projemiz sektördeki güvenilirligimizin kaniti.'],
 ];
 
 $icons = [
@@ -80,8 +80,8 @@ $icons = [
         <h1 class="slide-title"><?= $s['title'] ?></h1>
         <p class="slide-sub"><?= htmlspecialchars($s['subtitle']) ?></p>
         <div class="slide-btns">
-          <a href="<?= htmlspecialchars($s['button_url'] ?? '/?page=urunler') ?>" class="slide-btn-primary">
-            <?= htmlspecialchars($s['button_text'] ?? 'Kesfet') ?>
+          <a href="<?= htmlspecialchars($s['button_url'] ?? '/?page=ürünler') ?>" class="slide-btn-primary">
+            <?= htmlspecialchars($s['button_text'] ?? 'Keşfet') ?>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
           <a href="/?page=teklif" class="slide-btn-secondary">Teklif Al</a>
@@ -93,10 +93,10 @@ $icons = [
       <div class="slide-overlay"></div>
       <div class="slide-content">
         <div class="slide-eyebrow"><?= htmlspecialchars($siteSlogan) ?></div>
-        <h1 class="slide-title">Metalin Gucu,<br>Aluminyumun Zarafeti</h1>
-        <p class="slide-sub">Yuksek kaliteli metal ve aluminyum cozumleriyle projelerinize deger katiyoruz.</p>
+        <h1 class="slide-title">Metalin Gucu,<br>Alüminyumun Zarafeti</h1>
+        <p class="slide-sub">Yüksek kaliteli metal ve alüminyum çözümleriyle projelerinize deger katiyoruz.</p>
         <div class="slide-btns">
-          <a href="/?page=urunler" class="slide-btn-primary">Urunlerimizi Kesfet
+          <a href="/?page=ürünler" class="slide-btn-primary">Ürünlerimizi Keşfet
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
           <a href="/?page=teklif" class="slide-btn-secondary">Teklif Al</a>
@@ -151,7 +151,7 @@ $icons = [
     <div class="about-grid">
       <div class="about-img-wrap">
         <?php if ($aboutImg): ?>
-        <img class="about-img" src="<?= htmlspecialchars($aboutImg) ?>" alt="Hakkimizda">
+        <img class="about-img" src="<?= htmlspecialchars($aboutImg) ?>" alt="Hakkımızda">
         <?php else: ?>
         <div class="about-img-placeholder">
           <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="1">
@@ -166,8 +166,8 @@ $icons = [
         </div>
       </div>
       <div>
-        <div class="section-label">Hakkimizda</div>
-        <h2 class="section-title">Sektorun <span>Guvenilir</span> Partneri</h2>
+        <div class="section-label">Hakkımızda</div>
+        <h2 class="section-title">Sektörün <span>Guvenilir</span> Partneri</h2>
         <p class="section-desc"><?= nl2br(htmlspecialchars($aboutShort)) ?></p>
         <ul class="about-list">
           <?php foreach ($aboutFeatures as $feat): ?>
@@ -193,7 +193,7 @@ $icons = [
     <div class="section-header center">
       <div class="section-label">Hizmetlerimiz</div>
       <h2 class="section-title">Ne <span>Yapiyoruz?</span></h2>
-      <p class="section-desc">Genis hizmet yelpazamizla metal ve aluminyum ihtiyaclari icin tek durak noktaniz.</p>
+      <p class="section-desc">Geniş hizmet yelpazamizla metal ve alüminyum ihtiyaclari icin tek durak noktaniz.</p>
     </div>
     <div class="services-grid">
       <?php foreach ($services as $srv): ?>
@@ -217,18 +217,18 @@ $icons = [
   <div class="container">
     <div class="section-header" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px">
       <div>
-        <div class="section-label">Urunlerimiz</div>
-        <h2 class="section-title" style="margin-bottom:8px">One Cikan <span>Urunler</span></h2>
-        <p class="section-desc">Genis urun portfoyumuzden ihtiyaciniza uygun secimi yapabilirsiniz.</p>
+        <div class="section-label">Ürünlerimiz</div>
+        <h2 class="section-title" style="margin-bottom:8px">Öne Çıkan <span>Ürünler</span></h2>
+        <p class="section-desc">Geniş urun portfoyumuzden ihtiyacınıza uygun secimi yapabilirsiniz.</p>
       </div>
       <?php if ($products): ?>
-      <a href="/?page=urunler" class="btn-outline" style="margin-top:0;flex-shrink:0">Tum Urunler →</a>
+      <a href="/?page=ürünler" class="btn-outline" style="margin-top:0;flex-shrink:0">Tum Ürünler →</a>
       <?php endif; ?>
     </div>
 
     <?php if ($cats): ?>
     <div class="products-filter">
-      <button class="filter-btn active" data-cat="all">Tumu</button>
+      <button class="filter-btn active" data-cat="all">Tümü</button>
       <?php foreach ($cats as $c): ?>
       <button class="filter-btn" data-cat="<?= $c['id'] ?>"><?= htmlspecialchars($c['name']) ?></button>
       <?php endforeach; ?>
@@ -247,7 +247,7 @@ $icons = [
           </div>
           <?php endif; ?>
           <?php if ($pr['is_featured']): ?>
-          <span class="product-badge">One Cikan</span>
+          <span class="product-badge">Öne Çıkan</span>
           <?php endif; ?>
         </div>
         <div class="product-body">
@@ -281,7 +281,7 @@ $icons = [
     <div class="section-header center">
       <div class="section-label" style="color:#e74c3c;justify-content:center;display:flex">Neden Biz?</div>
       <h2 class="section-title" style="color:#fff">Fark Yaratan <span>Nedenler</span></h2>
-      <p class="section-desc" style="color:rgba(255,255,255,.55);margin:0 auto">Sektorde fark yaratmamizi saglayan degerlerimiz ve calisma anlayisimiz.</p>
+      <p class="section-desc" style="color:rgba(255,255,255,.55);margin:0 auto">Sektörde fark yaratmamizi saglayan degerlerimiz ve calisma anlayisimiz.</p>
     </div>
     <div class="why-grid">
       <?php foreach ($whyItems as $w): ?>
@@ -300,10 +300,10 @@ $icons = [
   <div class="container">
     <div class="quote-inner">
       <div class="quote-text">
-        <h2>Projeniz Icin Ucretsiz Teklif Alin</h2>
-        <p>Uzman ekibimiz en kisa surede sizinle iletisime gececektir.</p>
+        <h2>Projeniz Icin Ucretsiz Teklif Alın</h2>
+        <p>Uzman ekibimiz en kısa sürede sizinle iletişime geçecektir.</p>
       </div>
-      <a href="/?page=teklif" class="btn-quote-white">Hemen Teklif Alin →</a>
+      <a href="/?page=teklif" class="btn-quote-white">Hemen Teklif Alın →</a>
     </div>
   </div>
 </section>

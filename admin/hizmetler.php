@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!$image) $image = $existing->fetchColumn();
         $pdo->prepare('UPDATE ' . p() . 'services SET name=?,slug=?,short_desc=?,description=?,icon=?,sort_order=?,is_active=?,image=? WHERE id=?')
             ->execute([$name,$slug,$short,$desc,$icon,$sort,$active,$image,$id]);
-        flash('success','Guncellendi.');
+        flash('success','Güncellendi.');
     } else {
         $pdo->prepare('INSERT INTO ' . p() . 'services (name,slug,short_desc,description,icon,sort_order,is_active,image) VALUES (?,?,?,?,?,?,?,?)')
             ->execute([$name,$slug,$short,$desc,$icon,$sort,$active,$image]);
@@ -53,14 +53,14 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
       <div class="form-group"><label class="form-label">Sira</label><input type="number" name="sort_order" class="form-control" value="<?= (int)($editing['sort_order'] ?? 0) ?>"></div>
       <div class="form-group full"><label class="form-label">Kisa Aciklama</label><textarea name="short_desc" class="form-control" rows="2"><?= htmlspecialchars($editing['short_desc'] ?? '') ?></textarea></div>
       <div class="form-group full"><label class="form-label">Detayli Aciklama</label><textarea name="description" class="form-control" rows="6"><?= htmlspecialchars($editing['description'] ?? '') ?></textarea></div>
-      <div class="form-group full"><label class="form-label">Gorsel</label>
+      <div class="form-group full"><label class="form-label">Görsel</label>
         <?php if (!empty($editing['image'])): ?><img src="<?= htmlspecialchars($editing['image']) ?>" id="imgPrev" style="max-height:120px;border-radius:8px;margin-bottom:8px"><?php else: ?><img id="imgPrev" src="" style="max-height:120px;border-radius:8px;display:none;margin-bottom:8px"><?php endif; ?>
-        <div class="upload-area" onclick="document.getElementById('imgF').click()"><p style="font-size:12px;color:#aaa">Gorsel yukle</p></div>
+        <div class="upload-area" onclick="document.getElementById('imgF').click()"><p style="font-size:12px;color:#aaa">Görsel yukle</p></div>
         <input type="file" id="imgF" name="image" accept="image/*" data-preview="imgPrev" style="display:none">
       </div>
       <div class="form-group"><div class="form-check" style="margin-top:28px"><input type="checkbox" name="is_active" id="ia" <?= !isset($editing)||!empty($editing['is_active'])?'checked':'' ?>><label for="ia">Aktif</label></div></div>
     </div>
-    <div style="margin-top:20px;display:flex;gap:10px"><button type="submit" class="btn btn-primary"><?= $action==='edit'?'Guncelle':'Ekle' ?></button><a href="/admin/hizmetler.php" class="btn btn-secondary">Iptal</a></div>
+    <div style="margin-top:20px;display:flex;gap:10px"><button type="submit" class="btn btn-primary"><?= $action==='edit'?'Güncelle':'Ekle' ?></button><a href="/admin/hizmetler.php" class="btn btn-secondary">Iptal</a></div>
   </form>
 </div></div>
 <?php else: ?>

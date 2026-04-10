@@ -24,11 +24,11 @@ if ($slug) {
 } else {
     $services = $pdo->query('SELECT * FROM ' . p() . 'services WHERE is_active=1 ORDER BY sort_order')->fetchAll();
     $pageMetaTitle = 'Hizmetlerimiz - ' . getSetting('site_title');
-    $pageMetaDesc  = 'Metal ve aluminyum hizmetlerimizi inceleyin.';
+    $pageMetaDesc  = 'Metal ve alüminyum hizmetlerimizi inceleyin.';
 }
 ?>
     <h1><?= $slug ? htmlspecialchars($service['name']) : 'Hizmetlerimiz' ?></h1>
-    <p><?= $slug ? htmlspecialchars($service['short_desc'] ?? '') : 'Profesyonel metal ve aluminyum cozumleri.' ?></p>
+    <p><?= $slug ? htmlspecialchars($service['short_desc'] ?? '') : 'Profesyonel metal ve alüminyum çözümleri.' ?></p>
   </div>
 </div>
 

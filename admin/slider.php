@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($_FILES['image']['name'])) {
         $uploaded = uploadImage($_FILES['image'], 'sliders');
         if ($uploaded) $image = $uploaded;
-        else { flash('error','Gorsel yuklenemedi. Max 5MB, JPG/PNG/WEBP.'); header('Location: /admin/slider.php?action=' . ($id ? 'edit&id='.$id : 'add')); exit; }
+        else { flash('error','Görsel yuklenemedi. Max 5MB, JPG/PNG/WEBP.'); header('Location: /admin/slider.php?action=' . ($id ? 'edit&id='.$id : 'add')); exit; }
     }
 
     if ($id) {
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!$image) $image = $oldImg;
         $pdo->prepare('UPDATE ' . p() . 'slider SET title=?,subtitle=?,button_text=?,button_url=?,sort_order=?,is_active=?,image=? WHERE id=?')
             ->execute([$title, $subtitle, $btn_text, $btn_url, $sort_order, $is_active, $image, $id]);
-        flash('success','Slider guncellendi.');
+        flash('success','Slider güncellendi.');
     } else {
         $pdo->prepare('INSERT INTO ' . p() . 'slider (title,subtitle,button_text,button_url,sort_order,is_active,image) VALUES (?,?,?,?,?,?,?)')
             ->execute([$title, $subtitle, $btn_text, $btn_url, $sort_order, $is_active, $image]);
@@ -94,7 +94,7 @@ if (($action === 'edit') && $id) {
       <div class="form-grid">
         <div class="form-group full">
           <label class="form-label">Baslik (HTML destekler) *</label>
-          <input type="text" name="title" class="form-control" value="<?= htmlspecialchars($editing['title'] ?? '') ?>" placeholder="Metalin Gucu,&lt;br&gt;Aluminyumun Zarafeti" required>
+          <input type="text" name="title" class="form-control" value="<?= htmlspecialchars($editing['title'] ?? '') ?>" placeholder="Metalin Gucu,&lt;br&gt;Alüminyumun Zarafeti" required>
           <span class="form-hint">Satir atlamak icin &lt;br&gt; kullanin.</span>
         </div>
         <div class="form-group full">
@@ -103,11 +103,11 @@ if (($action === 'edit') && $id) {
         </div>
         <div class="form-group">
           <label class="form-label">Buton Metni</label>
-          <input type="text" name="button_text" class="form-control" value="<?= htmlspecialchars($editing['button_text'] ?? 'Kesfet') ?>">
+          <input type="text" name="button_text" class="form-control" value="<?= htmlspecialchars($editing['button_text'] ?? 'Keşfet') ?>">
         </div>
         <div class="form-group">
           <label class="form-label">Buton Linki</label>
-          <input type="text" name="button_url" class="form-control" value="<?= htmlspecialchars($editing['button_url'] ?? '/?page=urunler') ?>" placeholder="/?page=urunler">
+          <input type="text" name="button_url" class="form-control" value="<?= htmlspecialchars($editing['button_url'] ?? '/?page=ürünler') ?>" placeholder="/?page=ürünler">
         </div>
         <div class="form-group">
           <label class="form-label">Sira</label>
@@ -120,7 +120,7 @@ if (($action === 'edit') && $id) {
           </div>
         </div>
         <div class="form-group full">
-          <label class="form-label">Gorsel (JPG/PNG/WEBP, max 5MB)</label>
+          <label class="form-label">Görsel (JPG/PNG/WEBP, max 5MB)</label>
           <?php if (!empty($editing['image'])): ?>
           <div style="margin-bottom:10px">
             <img src="<?= htmlspecialchars($editing['image']) ?>" id="imgPreview" style="max-height:180px;border-radius:8px;border:1px solid #eee">
@@ -130,17 +130,17 @@ if (($action === 'edit') && $id) {
           <?php endif; ?>
           <div class="upload-area" onclick="document.getElementById('imageFile').click()">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="1.5" style="margin:0 auto 8px"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-            <p style="font-size:13px;color:#888">Gorsel secmek icin tiklayin</p>
+            <p style="font-size:13px;color:#888">Görsel secmek icin tiklayin</p>
             <p style="font-size:11px;color:#bbb;margin-top:4px">PNG, JPG, WEBP &bull; Maks 5MB</p>
           </div>
           <input type="file" id="imageFile" name="image" accept="image/*" data-preview="imgPreview" style="display:none">
-          <span class="form-hint">Gorsel secmezseniz mevcut gorsel korunur. En iyi boyut: 1920x900px</span>
+          <span class="form-hint">Görsel secmezseniz mevcut görsel korunur. En iyi boyut: 1920x900px</span>
         </div>
       </div>
       <div style="margin-top:24px;display:flex;gap:10px">
         <button type="submit" class="btn btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
-          <?= $action === 'edit' ? 'Guncelle' : 'Ekle' ?>
+          <?= $action === 'edit' ? 'Güncelle' : 'Ekle' ?>
         </button>
         <a href="/admin/slider.php" class="btn btn-secondary">Iptal</a>
       </div>
@@ -167,7 +167,7 @@ if (($action === 'edit') && $id) {
     <?php else: ?>
     <div class="table-wrap">
       <table class="admin-table">
-        <thead><tr><th>Gorsel</th><th>Baslik</th><th>Buton</th><th>Sira</th><th>Durum</th><th style="text-align:right">Islemler</th></tr></thead>
+        <thead><tr><th>Görsel</th><th>Baslik</th><th>Buton</th><th>Sira</th><th>Durum</th><th style="text-align:right">Islemler</th></tr></thead>
         <tbody>
           <?php foreach ($slides as $s): ?>
           <tr>

@@ -1,7 +1,7 @@
 <?php
 define('ROOT', dirname(__DIR__));
 require_once ROOT . '/admin/includes/admin_init.php';
-$pageTitle = 'Guncelleme';
+$pageTitle = 'Güncelleme';
 
 // Versiyon: config.php > DB > fallback
 $currentVer = '1.0.0';
@@ -15,7 +15,7 @@ $currentVer = ltrim($currentVer, 'v'); // daima v-siz sakla
 $repoSlug    = getSetting('github_repo',  '');
 $githubToken = getSetting('github_token', '');
 
-/* ---- AJAX: surum kontrol ---- */
+/* ---- AJAX: sürüm kontrol ---- */
 if (isset($_GET['action']) && $_GET['action'] === 'check') {
     header('Content-Type: application/json; charset=utf-8');
     if (!function_exists('curl_init')) { echo json_encode(['error' => 'cURL aktif degil.']); exit; }
@@ -152,7 +152,7 @@ function applyZip(string $tmpZip, string $version, $pdo): array
             $written = file_put_contents($dest, $fc);
             if ($written === false) {
                 $log[] = "YAZMA IZNI HATASI: $f";
-                $log[] = "  -> Cozum: $dest dosyasina chmod 644 verin.";
+                $log[] = "  -> Çözüm: $dest dosyasina chmod 644 verin.";
                 $fail++;
             } else {
                 $log[] = "OK: $f ($written byte)";
@@ -189,7 +189,7 @@ function applyZip(string $tmpZip, string $version, $pdo): array
         $log[] = "DB versiyon hatasi: " . $e->getMessage();
     }
 
-    // config.php - yazma izni varsa guncelle
+    // config.php - yazma izni varsa güncelle
     $cfgPath = ROOT . '/config.php';
     if (file_exists($cfgPath)) {
         if (is_writable($cfgPath)) {
@@ -201,7 +201,7 @@ function applyZip(string $tmpZip, string $version, $pdo): array
             );
             if ($newCfg !== null && $newCfg !== $cfg) {
                 if (file_put_contents($cfgPath, $newCfg) !== false) {
-                    $log[] = "config.php guncellendi: APP_VERSION = '$ver'";
+                    $log[] = "config.php güncellendi: APP_VERSION = '$ver'";
                 } else {
                     $log[] = "config.php yazma hatasi.";
                 }
@@ -271,7 +271,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply_github'])) {
             ->execute([$version ?: '?', $e->getMessage() . "\n" . implode("\n", $log), 'failed']);
         flash('error', 'Hata: ' . $e->getMessage());
     }
-    header('Location: /admin/guncelleme.php'); exit;
+    header('Location: /admin/güncelleme.php'); exit;
 }
 
 /* ---- POST: Manuel ZIP ---- */
@@ -321,7 +321,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply_manual'])) {
             ->execute([$version ?: '?', $e->getMessage() . "\n" . implode("\n", $log), 'failed']);
         flash('error', 'Hata: ' . $e->getMessage());
     }
-    header('Location: /admin/guncelleme.php'); exit;
+    header('Location: /admin/güncelleme.php'); exit;
 }
 
 $history = $pdo->query(
@@ -332,7 +332,7 @@ $history = $pdo->query(
 <html lang="tr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Guncelleme - Admin</title>
+<title>Güncelleme - Admin</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/admin.css?v=<?= htmlspecialchars($currentVer) ?>">
 </head>
@@ -345,39 +345,39 @@ $history = $pdo->query(
 <div class="alert alert-<?= $fl['type'] ?>"><?= htmlspecialchars($fl['msg']) ?></div>
 <?php endif; ?>
 
-<div class="page-actions"><h1>Sistem Guncellemesi</h1></div>
+<div class="page-actions"><h1>Sistem Güncellemesi</h1></div>
 
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px">
 
   <!-- GitHub -->
   <div class="card">
-    <div class="card-header"><div class="card-title">🔗 GitHub Otomatik Guncelleme</div></div>
+    <div class="card-header"><div class="card-title">🔗 GitHub Otomatik Güncelleme</div></div>
     <div class="card-body">
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
         <div style="flex:1;padding:14px;background:#f8f8f8;border-radius:8px;text-align:center">
-          <div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Aktif Surum</div>
+          <div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Aktif Sürüm</div>
           <div style="font-size:24px;font-weight:800;color:#1a1a2e">v<?= htmlspecialchars($currentVer) ?></div>
         </div>
         <div style="color:#ccc;font-size:20px">→</div>
         <div id="latestBox" style="flex:1;padding:14px;background:#f8f8f8;border:1px solid #eee;border-radius:8px;text-align:center">
-          <div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Son Surum</div>
+          <div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Son Sürüm</div>
           <div style="font-size:16px;color:#ccc">—</div>
         </div>
       </div>
       <button id="btnCheck" onclick="checkRelease()" class="btn btn-secondary" style="width:100%;justify-content:center;margin-bottom:12px">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-        Surum Kontrol Et
+        Sürüm Kontrol Et
       </button>
       <div id="releaseInfo" style="display:none">
         <div id="releaseBox" style="padding:12px;background:#f8f8f8;border-radius:8px;margin-bottom:12px;font-size:12px;color:#555;line-height:1.6"></div>
-        <form method="POST" id="ghUpdateForm" onsubmit="return confirm('Guncelleme uygulanacak?')">
+        <form method="POST" id="ghUpdateForm" onsubmit="return confirm('Güncelleme uygulanacak?')">
           <input type="hidden" name="apply_github" value="1">
           <input type="hidden" name="zip_url"  id="zipUrl">
           <input type="hidden" name="version"  id="versionInput">
-          <button type="submit" id="btnUpdate" class="btn btn-primary" style="width:100%;justify-content:center;padding:12px">Guncelle</button>
+          <button type="submit" id="btnUpdate" class="btn btn-primary" style="width:100%;justify-content:center;padding:12px">Güncelle</button>
         </form>
       </div>
-      <div id="upToDate" style="display:none" class="alert alert-success">En guncel surum kullaniliyor.</div>
+      <div id="upToDate" style="display:none" class="alert alert-success">En guncel sürüm kullaniliyor.</div>
       <div id="checkError" style="display:none" class="alert alert-error"></div>
       <a href="https://github.com/<?= htmlspecialchars($repoSlug) ?>/releases" target="_blank"
          class="btn btn-secondary" style="width:100%;justify-content:center;margin-top:10px">GitHub Releases</a>
@@ -418,10 +418,10 @@ $history = $pdo->query(
 
 <!-- Gecmis -->
 <div class="card">
-  <div class="card-header"><div class="card-title">Guncelleme Gecmisi</div></div>
+  <div class="card-header"><div class="card-title">Güncelleme Gecmisi</div></div>
   <div class="table-wrap">
     <table class="admin-table">
-      <thead><tr><th style="width:120px">Surum</th><th style="width:120px">Durum</th><th style="width:160px">Tarih</th><th>Log</th></tr></thead>
+      <thead><tr><th style="width:120px">Sürüm</th><th style="width:120px">Durum</th><th style="width:160px">Tarih</th><th>Log</th></tr></thead>
       <tbody>
         <?php foreach ($history as $i => $h): ?>
         <?php $ver = ltrim($h['version'], 'v'); ?>
@@ -429,7 +429,7 @@ $history = $pdo->query(
           <td><strong>v<?= htmlspecialchars($ver) ?></strong></td>
           <td>
             <span class="badge badge-<?= $h['status'] === 'success' ? 'active' : 'passive' ?>">
-              <?= $h['status'] === 'success' ? '✓ Basarili' : '✗ Basarisiz' ?>
+              <?= $h['status'] === 'success' ? '✓ Başarılı' : '✗ Başarısız' ?>
             </span>
           </td>
           <td style="font-size:12px;color:#888;white-space:nowrap"><?= date('d.m.Y H:i', strtotime($h['updated_at'])) ?></td>
@@ -458,18 +458,18 @@ function checkRelease() {
   var btn = document.getElementById('btnCheck');
   btn.disabled = true; btn.textContent = 'Kontrol ediliyor...';
   ['releaseInfo','upToDate','checkError'].forEach(function(id){ document.getElementById(id).style.display='none'; });
-  fetch('/admin/guncelleme.php?action=check')
+  fetch('/admin/güncelleme.php?action=check')
     .then(function(r) { return r.json(); })
     .then(function(d) {
       btn.disabled = false;
-      btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg> Surum Kontrol Et';
+      btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg> Sürüm Kontrol Et';
       if (d.error) {
         document.getElementById('checkError').style.display = 'block';
         document.getElementById('checkError').textContent  = d.error;
         return;
       }
       var lb = document.getElementById('latestBox');
-      lb.innerHTML = '<div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Son Surum</div>'
+      lb.innerHTML = '<div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Son Sürüm</div>'
                    + '<div style="font-size:24px;font-weight:800;color:#10b981">'+d.tag+'</div>';
       lb.style.background = 'rgba(16,185,129,.1)';
       lb.style.border     = '1px solid rgba(16,185,129,.3)';
@@ -480,7 +480,7 @@ function checkRelease() {
       document.getElementById('releaseBox').innerHTML = info;
       document.getElementById('zipUrl').value      = d.zip_url;
       document.getElementById('versionInput').value = d.tag;
-      document.getElementById('btnUpdate').textContent = d.tag + ' Surumune Guncelle';
+      document.getElementById('btnUpdate').textContent = d.tag + ' Sürümune Güncelle';
       document.getElementById('releaseInfo').style.display = 'block';
     })
     .catch(function(e) {

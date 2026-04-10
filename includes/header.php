@@ -4,7 +4,7 @@ require_once ROOT . '/includes/db.php';
 require_once ROOT . '/includes/functions.php';
 
 $siteTitle  = getSetting('site_title',  'Parsal Metal');
-$siteSlogan = getSetting('site_slogan', 'Aluminyum Dograma ve Dis Cephe Sistemleri');
+$siteSlogan = getSetting('site_slogan', 'Alüminyum Doğrama ve Dış Cephe Sistemleri');
 $sitePhone  = getSetting('site_phone',  '');
 $siteLogo   = getSetting('site_logo',   '');
 $siteUrl    = defined('SITE_URL') ? SITE_URL : '';
@@ -16,9 +16,9 @@ $currentPage = $_GET['page'] ?? 'home';
 
 $nav = [
     'home'       => 'Ana Sayfa',
-    'urunler'    => 'Ürünler',
+    'ürünler'    => 'Ürünler',
     'hizmetler'  => 'Hizmetler',
-    'hakkimizda' => 'Hakkımızda',
+    'hakkımızda' => 'Hakkımızda',
     'iletisim'   => 'İletişim',
 ];
 ?>

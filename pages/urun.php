@@ -2,12 +2,12 @@
 require_once ROOT . '/includes/header.php';
 $pdo = getDB();
 $slug = $_GET['slug'] ?? '';
-if (!$slug) { header('Location: /?page=urunler'); exit; }
+if (!$slug) { header('Location: /?page=ürünler'); exit; }
 
 $st = $pdo->prepare('SELECT pr.*, c.name as cat_name, c.slug as cat_slug FROM ' . p() . 'products pr LEFT JOIN ' . p() . 'categories c ON c.id=pr.category_id WHERE pr.slug=? AND pr.is_active=1');
 $st->execute([$slug]);
 $pr = $st->fetch();
-if (!$pr) { header('Location: /?page=urunler'); exit; }
+if (!$pr) { header('Location: /?page=ürünler'); exit; }
 
 $pageMetaTitle = htmlspecialchars($pr['name']) . ' - ' . getSetting('site_title');
 $pageMetaDesc  = htmlspecialchars($pr['short_desc'] ?? '');
@@ -66,14 +66,14 @@ $relatedProducts = $related->fetchAll();
 
     <?php if ($pr['description']): ?>
     <div style="margin-top:60px">
-      <h2 style="font-size:22px;font-weight:700;margin-bottom:20px">Urun Detaylari</h2>
+      <h2 style="font-size:22px;font-weight:700;margin-bottom:20px">Ürün Detaylari</h2>
       <div class="page-content"><?= $pr['description'] ?></div>
     </div>
     <?php endif; ?>
 
     <?php if ($relatedProducts): ?>
     <div style="margin-top:60px">
-      <h2 style="font-size:22px;font-weight:700;margin-bottom:28px">Benzer Urunler</h2>
+      <h2 style="font-size:22px;font-weight:700;margin-bottom:28px">Benzer Ürünler</h2>
       <div class="products-grid">
         <?php foreach ($relatedProducts as $rp): ?>
         <div class="product-card">

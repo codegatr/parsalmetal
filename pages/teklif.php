@@ -24,17 +24,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $siteEmail = getSetting('site_email','');
         if ($siteEmail) {
             $subj = 'Yeni Teklif Talebi - ' . $name;
-            $body  = "Ad Soyad: $name\nFirma: $company\nE-posta: $email\nTelefon: $phone\nUrun: $product\nMesaj:\n$message";
+            $body  = "Ad Soyad: $name\nFirma: $company\nE-posta: $email\nTelefon: $phone\nÜrün: $product\nMesaj:\n$message";
             @mail($siteEmail, $subj, $body, 'From: ' . $siteEmail);
         }
         $sent = true;
     }
 }
-$pageMetaTitle = 'Teklif Alin - ' . getSetting('site_title');
-$pageMetaDesc  = 'Ucretsiz fiyat teklifi icin hemen basvurun.';
+$pageMetaTitle = 'Teklif Alın - ' . getSetting('site_title');
+$pageMetaDesc  = 'Ucretsiz fiyat teklifi icin hemen başvurun.';
 ?>
-    <h1>Ucretsiz Teklif Alin</h1>
-    <p>Formumu doldurun, uzman ekibimiz en kisa surede sizinle iletisime gececek.</p>
+    <h1>Ucretsiz Teklif Alın</h1>
+    <p>Formumu doldurun, uzman ekibimiz en kısa sürede sizinle iletişime geçecek.</p>
   </div>
 </div>
 
@@ -42,7 +42,7 @@ $pageMetaDesc  = 'Ucretsiz fiyat teklifi icin hemen basvurun.';
   <div class="container" style="max-width:900px">
     <?php if ($sent): ?>
     <div class="alert alert-success" style="font-size:16px;padding:20px 24px">
-      ✅ Teklif talebiniz alindi! En kisa surede sizinle iletisime gececegiz.
+      ✅ Teklif talebiniz alındı! En kısa sürede sizinle iletişime geçeceğiz.
     </div>
     <?php endif; ?>
     <?php foreach ($errors as $err): ?>
@@ -52,7 +52,7 @@ $pageMetaDesc  = 'Ucretsiz fiyat teklifi icin hemen basvurun.';
     <div class="quote-form-wrap">
       <div class="quote-form-head">
         <h2>Teklif Talep Formu</h2>
-        <p>Tum alanlar dogruluk icin onemlidir. Bilgileriniz gizli tutulur.</p>
+        <p>Tum alanlar doğruluk icin onemlidir. Bilgileriniz gizli tutulur.</p>
       </div>
       <div class="quote-form-body">
         <form method="POST" id="quote-form">
@@ -78,7 +78,7 @@ $pageMetaDesc  = 'Ucretsiz fiyat teklifi icin hemen basvurun.';
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label>Ilgili Urun / Hizmet</label>
+              <label>Ilgili Ürün / Hizmet</label>
               <select name="product">
                 <option value="">Secin (opsiyonel)</option>
                 <?php foreach ($products as $pr): ?>

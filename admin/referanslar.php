@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($id) {
         $existing = $pdo->prepare('SELECT logo FROM ' . p() . 'references WHERE id=?'); $existing->execute([$id]); if (!$logo) $logo = $existing->fetchColumn();
         $pdo->prepare('UPDATE ' . p() . 'references SET name=?,url=?,sort_order=?,is_active=?,logo=? WHERE id=?')->execute([$name,$url,$sort,$active,$logo,$id]);
-        flash('success','Guncellendi.');
+        flash('success','Güncellendi.');
     } else {
         $pdo->prepare('INSERT INTO ' . p() . 'references (name,url,sort_order,is_active,logo) VALUES (?,?,?,?,?)')->execute([$name,$url,$sort,$active,$logo]);
         flash('success','Eklendi.');
@@ -68,7 +68,7 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
         </div>
         <div class="form-check" style="margin-bottom:16px"><input type="checkbox" name="is_active" id="ia" <?= !isset($editing)||!empty($editing['is_active'])?'checked':'' ?>><label for="ia">Aktif</label></div>
         <div style="display:flex;gap:8px">
-          <button type="submit" class="btn btn-primary"><?= $action==='edit'?'Guncelle':'Ekle' ?></button>
+          <button type="submit" class="btn btn-primary"><?= $action==='edit'?'Güncelle':'Ekle' ?></button>
           <?php if ($action==='edit'): ?><a href="/admin/referanslar.php" class="btn btn-secondary">Iptal</a><?php endif; ?>
         </div>
       </form>
