@@ -697,13 +697,14 @@ h1,h2,h3,h4,h5 { font-family: var(--font-display); font-weight: 700; line-height
 
 /* Küçük tablet / Büyük telefon */
 @media (max-width: 768px) {
-  :root { --header-h: 60px; }
+  :root { --header-h: 64px; }
+  .logo-wrap img, .site-logo-img { height: 46px !important; max-width: 150px; }
 
   /* Header */
   .main-nav, .header-actions { display: none; }
   .hamburger { display: flex; }
   .header-inner { gap: 0; }
-  .logo-wrap img, .site-logo-img { height: 44px !important; }
+  .logo-wrap img, .site-logo-img { height: 48px !important; max-width: 160px; }
 
   /* Mobile nav gelişmiş */
   .mobile-nav-link { font-size: 18px; padding: 16px 4px; }
@@ -827,7 +828,12 @@ h1,h2,h3,h4,h5 { font-family: var(--font-display); font-weight: 700; line-height
 /* Telefon */
 @media (max-width: 480px) {
   :root { --header-h: 56px; }
-  .logo-wrap img, .site-logo-img { height: 38px !important; }
+  .logo-wrap img, .site-logo-img {
+    height: 42px !important;
+    max-width: 120px;
+    object-fit: cover;
+    object-position: left center;
+  }
   .header-cta-btn { display: none; } /* Mobile'da header'da buton yok - nav'dan erişilir */
   .slide-title { font-size: 24px; }
   .slide-sub { font-size: 13px; }
