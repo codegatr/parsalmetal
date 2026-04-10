@@ -55,7 +55,11 @@ if ($slug) {
     <?php else: ?>
     <div class="services-grid" style="grid-template-columns:repeat(2,1fr);gap:28px">
       <?php foreach ($services as $s): ?>
-      <div class="service-card" style="text-align:left;padding:36px">
+      <div class="service-card" style="text-align:left">
+        <?php if (!empty($s['image'])): ?>
+        <div class="service-img" style="background-image:url('<?= htmlspecialchars($s['image']) ?>')"></div>
+        <?php endif; ?>
+        <div class="service-body">
         <div class="service-icon" style="margin:0 0 20px">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="<?= $icons[$s['icon']] ?? $icons['settings'] ?>"/></svg>
         </div>
@@ -65,7 +69,7 @@ if ($slug) {
           Detaylar
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
-      </div>
+      </div></div>
       <?php endforeach; ?>
       <?php if (empty($services)): ?>
       <div style="grid-column:1/-1;text-align:center;padding:60px;color:#999">Admin panelinden hizmet ekleyebilirsiniz.</div>
