@@ -107,7 +107,7 @@ if (($action === 'edit') && $id) {
         </div>
         <div class="form-group">
           <label class="form-label">Buton Linki</label>
-          <input type="text" name="button_url" class="form-control" value="<?= htmlspecialchars($editing['button_url'] ?? '/?page=ürünler') ?>" placeholder="/?page=ürünler">
+          <input type="text" name="button_url" class="form-control" value="<?= htmlspecialchars($editing['button_url'] ?? '/?page=urunler') ?>" placeholder="/?page=urunler">
         </div>
         <div class="form-group">
           <label class="form-label">Sira</label>

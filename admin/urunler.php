@@ -12,11 +12,11 @@ if ($action === 'delete' && $id) {
     $img = $r->fetchColumn();
     if ($img && file_exists(ROOT . $img)) unlink(ROOT . $img);
     $pdo->prepare('DELETE FROM ' . p() . 'products WHERE id=?')->execute([$id]);
-    flash('success','Ürün silindi.'); header('Location: /admin/ürünler.php'); exit;
+    flash('success','Ürün silindi.'); header('Location: /admin/urunler.php'); exit;
 }
 if ($action === 'toggle' && $id) {
     $pdo->prepare('UPDATE ' . p() . 'products SET is_active=1-is_active WHERE id=?')->execute([$id]);
-    header('Location: /admin/ürünler.php'); exit;
+    header('Location: /admin/urunler.php'); exit;
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name     = trim($_POST['name'] ?? '');
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ->execute([$name,$cat,$slug,$short,$desc,$specs,$sort,$featured,$active,$image]);
         flash('success','Ürün eklendi.');
     }
-    header('Location: /admin/ürünler.php'); exit;
+    header('Location: /admin/urunler.php'); exit;
 }
 $cats = $pdo->query('SELECT * FROM ' . p() . 'categories WHERE is_active=1 ORDER BY sort_order')->fetchAll();
 $products = $pdo->query('SELECT pr.*,c.name as cat_name FROM ' . p() . 'products pr LEFT JOIN ' . p() . 'categories c ON c.id=pr.category_id ORDER BY pr.sort_order,pr.id')->fetchAll();
@@ -72,7 +72,7 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
 <?php if ($action === 'add' || $action === 'edit'): ?>
 <div class="page-actions">
   <h1><?= $action==='edit'?'Ürün Duzenle':'Yeni Ürün Ekle' ?></h1>
-  <a href="/admin/ürünler.php" class="btn btn-secondary">← Geri</a>
+  <a href="/admin/urunler.php" class="btn btn-secondary">← Geri</a>
 </div>
 <div class="card"><div class="card-body">
 <form method="POST" enctype="multipart/form-data">
@@ -142,7 +142,7 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
       <?= $action==='edit'?'Güncelle':'Ekle' ?>
     </button>
-    <a href="/admin/ürünler.php" class="btn btn-secondary">Iptal</a>
+    <a href="/admin/urunler.php" class="btn btn-secondary">Iptal</a>
   </div>
 </form>
 </div></div>
@@ -150,7 +150,7 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
 <?php else: ?>
 <div class="page-actions">
   <h1>Ürünler <span style="font-size:14px;font-weight:400;color:#888">(<?= count($products) ?>)</span></h1>
-  <a href="/admin/ürünler.php?action=add" class="btn btn-primary">
+  <a href="/admin/urunler.php?action=add" class="btn btn-primary">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
     Yeni Ürün
   </a>
@@ -168,7 +168,7 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
         </td>
         <td><?= htmlspecialchars($pr['cat_name'] ?? '-') ?></td>
         <td>
-          <a href="/admin/ürünler.php?action=toggle&id=<?= $pr['id'] ?>">
+          <a href="/admin/urunler.php?action=toggle&id=<?= $pr['id'] ?>">
             <span class="badge badge-<?= $pr['is_active'] ? 'active' : 'passive' ?>"><?= $pr['is_active'] ? '● Aktif' : '○ Pasif' ?></span>
           </a>
           <?php if ($pr['is_featured']): ?><span class="badge badge-read" style="margin-left:4px">★ Öne Çıkan</span><?php endif; ?>
@@ -176,8 +176,8 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
         <td style="text-align:right">
           <div style="display:flex;gap:6px;justify-content:flex-end">
             <a href="/?page=urun&slug=<?= htmlspecialchars($pr['slug']) ?>" target="_blank" class="btn btn-sm btn-secondary">Gor</a>
-            <a href="/admin/ürünler.php?action=edit&id=<?= $pr['id'] ?>" class="btn btn-sm btn-secondary">Duzenle</a>
-            <a href="/admin/ürünler.php?action=delete&id=<?= $pr['id'] ?>" class="btn btn-sm btn-danger" data-confirm="Ürün silinecek, emin misiniz?">Sil</a>
+            <a href="/admin/urunler.php?action=edit&id=<?= $pr['id'] ?>" class="btn btn-sm btn-secondary">Duzenle</a>
+            <a href="/admin/urunler.php?action=delete&id=<?= $pr['id'] ?>" class="btn btn-sm btn-danger" data-confirm="Ürün silinecek, emin misiniz?">Sil</a>
           </div>
         </td>
       </tr>
