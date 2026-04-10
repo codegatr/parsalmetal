@@ -16,7 +16,7 @@ $currentPage = $_GET['page'] ?? 'home';
 
 $nav = [
     'home'       => 'Ana Sayfa',
-    'urunler'    => 'Ürünler',
+    'ürünler'    => 'Ürünler',
     'hizmetler'  => 'Hizmetler',
     'hakkimizda' => 'Hakkımızda',
     'iletisim'   => 'İletişim',

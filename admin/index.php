@@ -24,7 +24,7 @@ $siteTitle = getSetting('site_title','Parsal Metal');
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Admin Girisi - <?= htmlspecialchars($siteTitle) ?></title>
+<title>Admin Girişi - <?= htmlspecialchars($siteTitle) ?></title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -65,7 +65,7 @@ input:focus{border-color:#c0392b;box-shadow:0 0 0 3px rgba(192,57,43,.15)}
         <label>Sifre</label>
         <input type="password" name="password" required autocomplete="current-password">
       </div>
-      <button class="btn" type="submit">Giris Yap</button>
+      <button class="btn" type="submit">Giriş Yap</button>
     </form>
   </div>
   <p class="footer">CODEGA &bull; Parsal CMS</p>

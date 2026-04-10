@@ -92,7 +92,7 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
     </div>
     <div class="form-group">
       <label class="form-label">Slug (URL)</label>
-      <input type="text" name="slug" id="slug" class="form-control" value="<?= htmlspecialchars($editing['slug'] ?? '') ?>" placeholder="otomatik-olusturulur">
+      <input type="text" name="slug" id="slug" class="form-control" value="<?= htmlspecialchars($editing['slug'] ?? '') ?>" placeholder="otomatik-oluşturulur">
     </div>
     <div class="form-group">
       <label class="form-label">Sira</label>
@@ -107,7 +107,7 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
       <textarea name="description" class="form-control" rows="5"><?= htmlspecialchars($editing['description'] ?? '') ?></textarea>
     </div>
     <div class="form-group full">
-      <label class="form-label">Teknik Ozellikler</label>
+      <label class="form-label">Teknik Özellikler</label>
       <textarea name="specs" class="form-control" rows="4" placeholder="Malzeme: Alüminyum&#10;Kalinlik: 2mm&#10;Uzunluk: 6000mm"><?= htmlspecialchars($editing['specs'] ?? '') ?></textarea>
       <span class="form-hint">Her satira bir ozellik: "Anahtar: Deger" formatinda yazin.</span>
     </div>
@@ -183,7 +183,7 @@ if (($action === 'edit') && $id) { $s = $pdo->prepare('SELECT * FROM ' . p() . '
       </tr>
       <?php endforeach; ?>
       <?php if (empty($products)): ?>
-      <tr><td colspan="5" style="text-align:center;color:#999;padding:40px">Henuz urun eklenmemis.</td></tr>
+      <tr><td colspan="5" style="text-align:center;color:#999;padding:40px">Henuz ürün eklenmemis.</td></tr>
       <?php endif; ?>
     </tbody>
   </table>

@@ -24,7 +24,7 @@ $siteEmail   = getSetting('site_email', '');
 $siteAddress = getSetting('site_address', '');
 $siteSlogan  = getSetting('site_slogan', 'Metal ve Alüminyum Çözümleri');
 $aboutImg    = getSetting('about_image', '');
-$aboutShort  = getSetting('about_short', 'Metal ve alüminyum sektöründe yıllardır edindigi deneyimle müşterilerine en yüksek kalitede urun ve hizmetler sunmaktadır.');
+$aboutShort  = getSetting('about_short', 'Metal ve alüminyum sektöründe yıllardır edindigi deneyimle müşterilerine en yüksek kalitede ürün ve hizmetler sunmaktadır.');
 $foundedYear = getSetting('founded_year', '25');
 $whatsapp    = getSetting('site_whatsapp', preg_replace('/\D/', '', $sitePhone));
 
@@ -53,7 +53,7 @@ $whyItems = (!empty($whyDecoded) && is_array($whyDecoded)) ? $whyDecoded : [
     ['num'=>'03','title'=>'Zamaninda Teslimat',  'desc'=>'Proje baslangicinda belirlenen teslimat tarihlerine sadik kalarak sürpriz gecikmeler yasatmiyoruz.'],
     ['num'=>'04','title'=>'Uygun Fiyat',         'desc'=>'Fabrikasyon üretim avantajimizla rekabetci fiyatlar sunuyor, kaliteden ödün vermeden bütcenize saygi gösteriyoruz.'],
     ['num'=>'05','title'=>'Satis Sonrasi Destek','desc'=>'Montaj sonrasinda da yaninizdayiz. Periyodik bakim, onarim ve yedek parca temin hizmetleriyle her zaman ulasabilirsiniz.'],
-    ['num'=>'06','title'=>'850+ Referans',        'desc'=>'Konya genelinde konuttan ticariye, hastaneden okula 850+ basarili projemiz sektördeki güvenilirligimizin kaniti.'],
+    ['num'=>'06','title'=>'850+ Referans',        'desc'=>'Konya genelinde konuttan ticariye, hastaneden okula 850+ başarılı projemiz sektördeki güvenilirligimizin kaniti.'],
 ];
 
 $icons = [
@@ -225,7 +225,7 @@ $icons = [
       <div>
         <div class="section-label">Ürünlerimiz</div>
         <h2 class="section-title" style="margin-bottom:8px">Öne Çıkan <span>Ürünler</span></h2>
-        <p class="section-desc">Geniş urun portfoyumuzden ihtiyacınıza uygun secimi yapabilirsiniz.</p>
+        <p class="section-desc">Geniş ürün portfoyumuzden ihtiyacınıza uygun secimi yapabilirsiniz.</p>
       </div>
       <?php if ($products): ?>
       <a href="/?page=ürünler" class="btn-outline" style="margin-top:0;flex-shrink:0">Tum Ürünler →</a>
@@ -273,8 +273,8 @@ $icons = [
       <?php if (empty($products)): ?>
       <div style="grid-column:1/-1;text-align:center;padding:64px;color:#bbb">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ddd" stroke-width="1.5" style="margin:0 auto 16px"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10"/></svg>
-        <p style="font-size:15px">Henuz urun eklenmemis.</p>
-        <p style="font-size:13px;margin-top:6px">Admin panelinden urun ekleyebilirsiniz.</p>
+        <p style="font-size:15px">Henuz ürün eklenmemis.</p>
+        <p style="font-size:13px;margin-top:6px">Admin panelinden ürün ekleyebilirsiniz.</p>
       </div>
       <?php endif; ?>
     </div>
