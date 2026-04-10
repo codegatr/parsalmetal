@@ -720,3 +720,5 @@ h1,h2,h3,h4,h5 { font-family: var(--font-display); font-weight: 700; line-height
   .section-title { font-size: 22px; }
   .service-img { height: 160px; }
 }
+
+.service-img + .service-body .service-icon { display:none; }
