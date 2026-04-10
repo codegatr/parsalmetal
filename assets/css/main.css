@@ -677,6 +677,7 @@ h1,h2,h3,h4,h5 { font-family: var(--font-display); font-weight: 700; line-height
   .slide-content { padding: 0 32px; }
 }
 @media (max-width: 768px) {
+  .logo-wrap img, .site-logo-img { height: 44px !important; width: 54px !important; max-width: 54px; object-fit: cover; object-position: left center; }
   :root { --header-h: 64px; }
   .main-nav, .header-actions { display: none; }
   .hamburger { display: flex; }
@@ -714,6 +715,7 @@ h1,h2,h3,h4,h5 { font-family: var(--font-display); font-weight: 700; line-height
   .iletisim-serit { grid-template-columns: 1fr !important; }
 }
 @media (max-width: 480px) {
+  .logo-wrap img, .site-logo-img { height: 40px !important; width: 48px !important; max-width: 48px; object-fit: cover; object-position: left center; }
   .slide-title { font-size: 22px; }
   .stat-value { font-size: 24px; }
   .container { padding: 0 16px; }
